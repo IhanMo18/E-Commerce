@@ -15,7 +15,7 @@ Este proyecto es una aplicación de comercio electrónico desarrollada con **ASP
 ## 🛠 Tecnologías Utilizadas
 
 - **Framework:** ASP.NET Core MVC
-- **Base de Datos:** SQL Server
+- **Base de Datos:** PostrgeSQL
 - **ORM:** Entity Framework Core
 - **Frontend:** Bootstrap + Razor Views
 - **Autenticación:** Identity Framework
