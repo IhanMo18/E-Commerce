@@ -1,0 +1,11 @@
+/Users/ihan/RiderProjects/Ecommerce/Model/bin/Debug/net9.0/Model.deps.json
+/Users/ihan/RiderProjects/Ecommerce/Model/bin/Debug/net9.0/Model.dll
+/Users/ihan/RiderProjects/Ecommerce/Model/bin/Debug/net9.0/Model.pdb
+/Users/ihan/RiderProjects/Ecommerce/Model/obj/Debug/net9.0/Model.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ihan/RiderProjects/Ecommerce/Model/obj/Debug/net9.0/Model.AssemblyInfoInputs.cache
+/Users/ihan/RiderProjects/Ecommerce/Model/obj/Debug/net9.0/Model.AssemblyInfo.cs
+/Users/ihan/RiderProjects/Ecommerce/Model/obj/Debug/net9.0/Model.csproj.CoreCompileInputs.cache
+/Users/ihan/RiderProjects/Ecommerce/Model/obj/Debug/net9.0/Model.dll
+/Users/ihan/RiderProjects/Ecommerce/Model/obj/Debug/net9.0/refint/Model.dll
+/Users/ihan/RiderProjects/Ecommerce/Model/obj/Debug/net9.0/Model.pdb
+/Users/ihan/RiderProjects/Ecommerce/Model/obj/Debug/net9.0/ref/Model.dll

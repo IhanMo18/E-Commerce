@@ -1,0 +1,35 @@
+@model CategoryVM
+
+
+<div class="container">
+    <div class="d-flex justify-content-center border">
+        <form method="post" asp-controller="Category" asp-action="CreateCategory">
+            <div>
+                <div class="mb-2">
+                    <div class="row">
+                        <h1>Create a new Category</h1>
+                    </div>
+                </div>
+                
+                <div class="mb-2">
+                    <div class="row">
+                        <label asp-for="@Model.Name"></label>
+                        <input asp-for="@Model.Name" class="form-control"/>
+                        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="row m-4">
+                    <div class="col-6">
+                        <button type="submit" asp-controller="Category" asp-action="CreateCategory" class="btn btn-outline-success">Create</button>
+                    </div>
+                    <div class="col-6">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-info">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</div>
+html>

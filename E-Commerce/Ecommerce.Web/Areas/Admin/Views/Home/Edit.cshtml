@@ -1,0 +1,74 @@
+@model ProductVm
+
+<div class="container">
+    <div class="d-flex justify-content-center border pt-5 m-auto">
+        <form method="post" asp-controller="Home" asp-action="Create">
+            <div>
+                <div class="mb-2">
+                    <div class="row">
+                        <h1>Edit</h1>
+                    </div>
+                </div>
+                
+                <div class="mb-2">
+                    <div class="row">
+                        <label asp-for="Product.Name"></label>
+                        <input asp-for="Product.Name" class="form-control"/>
+                        <span asp-validation-for="Product.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="mb-2">
+                    <div class="row">
+                        <label asp-for="Product.Details"></label>
+                        <input asp-for=Product.Details class="form-control"/>
+                        <span asp-validation-for="Product.Details" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="mb-2">
+                    <div class="row">
+                        <label asp-for="Product.Price"></label>
+                        <input asp-for="Product.Price" class="form-control"/>
+                        <span asp-validation-for="Product.Price" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="mb-2">
+                    <div class="row">
+                        <label asp-for="Product.InExist"></label>
+                        <input asp-for="Product.InExist" class="form-control"/>
+                        <span asp-validation-for="Product.InExist" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="mb-2">
+                    <div class="row">
+                        <label asp-for="Product.Discount"></label>
+                        <input asp-for="Product.Discount" class="form-control"/>
+                        <span asp-validation-for="Product.Discount" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="mb-2">
+                    <label asp-for="Product.CategoryId"></label>
+                    <select asp-for="Product.CategoryId" asp-items="@Model.Categories"  class="form-select">
+                        <option disabled selected>Select a Category for the Product</option>
+                    </select>
+                </div>
+                
+                <div class="row m-4">
+                    <div class="col-6">
+                        <button type="submit" asp-controller="Home" asp-action="Create" class="btn btn-outline-success">Create</button>
+                    </div>
+                    <div class="col-6">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-info">Back to Home</a>
+                    </div>
+                </div>
+                
+            
+            </div>
+        </form>
+    </div>
+    
+</div>

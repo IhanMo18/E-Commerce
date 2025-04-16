@@ -1,0 +1,165 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>Dashboard</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EntityFramework" Version="6.5.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
+      <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="9.0.2" />
+      <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="9.0.2" />
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\admin-assets\" />
+      <Folder Include="wwwroot\client-assets\" />
+      <Folder Include="wwwroot\img\product\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\Client\Views\Home\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Client\Views\Home\Privacy.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\10.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\arrangement-black-friday-shopping-carts-with-copy-space.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\her.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\019ea50a-bc54-421b-9f2f-4e0fbb2364df.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\144f1bb6-e9c9-43ce-866d-63fd523f4a61.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\17ec461b-de72-4197-b896-b4bf271631f4.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\2533620b-9bd1-45f4-b3a3-d5be81b4b12b.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\40e7b7aa-4628-4082-b207-025fd5ba5f61.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\56f57af6-43c5-4538-ad1e-dc5ae8f92659.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\578eb5a2-fed1-4f93-96d9-cbe43db7acbf.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\72c97702-8b34-4a3d-ae62-38d7f21dc155.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\7e8b1fbb-1763-46be-a2a0-a41ba2a2142d.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\84580ff8-f922-4ec4-b9d7-00d925f7c652.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\9fa03c22-17c7-4628-8393-7b3dd31d3f2f.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\a1600f4f-021e-4256-9534-87ca9954bf86.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\afe2591b-e89c-48b6-ae4b-0874530c0fc9.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\b06e5d98-7ed6-4de5-99ed-a64d9446737d.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\cd25f543-10e3-4a4f-a57f-34631f0a1cc2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\d2aac577-b53e-44be-a7e9-e30825f074e6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\d5e47841-89ee-4fa8-8872-e20242cb6a7c.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\dc666a49-6842-40f3-ad6d-c403d21eaf3f.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\e03d964c-4abd-4283-8d20-aa72abbf8114.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\product\e6bd21d3-3128-433c-8d71-cd3a4ced0566.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\useer2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\scripts.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\LICENSE" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.slim.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.slim.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.slim.min.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\10.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\arrangement-black-friday-shopping-carts-with-copy-space.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\her.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\019ea50a-bc54-421b-9f2f-4e0fbb2364df.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\144f1bb6-e9c9-43ce-866d-63fd523f4a61.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\17ec461b-de72-4197-b896-b4bf271631f4.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\2533620b-9bd1-45f4-b3a3-d5be81b4b12b.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\40e7b7aa-4628-4082-b207-025fd5ba5f61.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\56f57af6-43c5-4538-ad1e-dc5ae8f92659.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\578eb5a2-fed1-4f93-96d9-cbe43db7acbf.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\72c97702-8b34-4a3d-ae62-38d7f21dc155.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\7e8b1fbb-1763-46be-a2a0-a41ba2a2142d.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\84580ff8-f922-4ec4-b9d7-00d925f7c652.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\9fa03c22-17c7-4628-8393-7b3dd31d3f2f.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\a1600f4f-021e-4256-9534-87ca9954bf86.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\afe2591b-e89c-48b6-ae4b-0874530c0fc9.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\b06e5d98-7ed6-4de5-99ed-a64d9446737d.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\cd25f543-10e3-4a4f-a57f-34631f0a1cc2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\d2aac577-b53e-44be-a7e9-e30825f074e6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\d5e47841-89ee-4fa8-8872-e20242cb6a7c.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\dc666a49-6842-40f3-ad6d-c403d21eaf3f.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\e03d964c-4abd-4283-8d20-aa72abbf8114.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\product\e6bd21d3-3128-433c-8d71-cd3a4ced0566.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\client-assets\img\useer2.jpg" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Ecommerce.Data\Ecommerce.Data.csproj" />
+      <ProjectReference Include="..\Ecommerce.Domain\Ecommerce.Domain.csproj" />
+      <ProjectReference Include="..\Ecommerce.Services\Ecommerce.Services.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="wwwroot\admin-assets\img\.DS_Store" />
+      <Content Include="wwwroot\admin-assets\js\.DS_Store" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,262 @@
+﻿
+@using Ecommerce.Domain.Interface.Service
+@using Ecommerce.Domain.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject ICartService Service;
+@{
+    var count = 0; 
+    var username = UserManager.GetUserName(User);
+    var userProfile = await UserManager.GetUserAsync(User);
+    
+
+    if (SignInManager.IsSignedIn(User))
+    {
+        var userTask = UserManager.GetUserAsync(User);
+        var user = await userTask;
+
+        if (user != null)
+        {
+            var cartTask = Service.SearchCartBySessionid(user.SessionId);
+            var cart = await cartTask;
+
+            if (cart != null)
+            {
+                count = cart.ProductCart?.Count ?? 0;
+            }
+        }
+    }
+    else
+    {
+        var sessionId = (string)TempData["seessionId"];
+        var cartTask = Service.SearchCartBySessionid(sessionId); 
+        var cart = await cartTask;
+        
+        Console.WriteLine(sessionId);
+        Console.WriteLine(cart);
+        if (cart != null)
+        {
+            count = cart.ProductCart.Count;
+        }
+       
+    }
+}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E-commerce Navbar</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="@Url.Content("~/_LayoutCss.css")" asp-append-version="true" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    </head>
+    
+    
+    <body>
+    
+    <nav class="navbar navbar-expand-lg fixed-top bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://images.unsplash.com/photo-1633409361618-c73427e4e206?fit=crop&w=40&h=40" class="rounded-circle me-2" alt="Brand Logo">
+                <span>LuxeBay</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                   
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-area="Client" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Home">Dashboard</a>
+                        </li>
+                    }
+                    
+                </ul>
+
+                <div class="d-flex align-items-center gap-4">
+                    
+                    <form class="search-form">
+                        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                            <div class="input-group">
+                                <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" placeholder="Type here...">
+                            </div>
+                        </div>
+                    </form>
+
+                    <!--Shopping Cart-->
+                    <a asp-area="Client" asp-controller="Cart" asp-action="Index" class="nav-icon">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="position-absolute translate-middle badge rounded-pill bg-danger">@count</span>
+                    </a>
+                    
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <!--Notifications-->
+                        <div class="nav-item dropdown pe-2 d-flex align-items-center">
+                            <a  class="position-relative nav-icon nav-item pe-2" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bell fs-5"></i>
+                                <span class="position-absolute translate-middle badge rounded-pill bg-danger">5</span>
+                            </a>
+                            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                                <li class="mb-2">
+                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                        <div class="d-flex py-1">
+                                            <div class="my-auto">
+                                                <img src="admin-assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    <span class="font-weight-bold">New message</span> from Laur
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0 ">
+                                                    <i class="fa fa-clock me-1"></i>
+                                                    13 minutes ago
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                        <div class="d-flex py-1">
+                                            <div class="my-auto">
+                                                <img src="admin-assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    <span class="font-weight-bold">New album</span> by Travis Scott
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0 ">
+                                                    <i class="fa fa-clock me-1"></i>
+                                                    1 day
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                        <div class="d-flex py-1">
+                                            <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
+                                                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <title>credit-card</title>
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                            <g transform="translate(1716.000000, 291.000000)">
+                                                                <g transform="translate(453.000000, 454.000000)">
+                                                                    <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                                                    <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    Payment successfully completed
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0 ">
+                                                    <i class="fa fa-clock me-1"></i>
+                                                    2 days
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--User-->
+                        <div class="dropdown">
+                            
+                            <a class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
+                                @if (userProfile != null)
+                                {
+                                    <img src="@userProfile.ImgProfile" class="overflow-hidden max-width-40 rounded-circle me-2">
+                                }
+                                <span class="d-none d-sm-inline">@username</span>
+                            </a>
+
+
+
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                
+                                <li><a class="dropdown-item" href="#">
+                                    <i class="pe-1 bi bi-people"></i>Profile
+                                </a></li>
+                                <li><a class="dropdown-item" href="#">
+                                    <i class="pe-1 bi bi-gear"></i>Settings
+                                </a></li>
+
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><a class="dropdown-item text-danger" asp-area="Identity" asp-page="/Account/Logout">
+                                    <i class="pe-1 bi bi-box-arrow-left"></i>LogOut
+                                </a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="d-flex gap-3">
+                            <div class="nav-item d-flex align-items-center">
+                                <a asp-area="Identity" asp-page="/Account/Login"  class="nav-link text-body font-weight-bold px-0">
+                                    <i class="fa fa-user-check me-sm-1"></i>
+                                    <span class="d-sm-inline d-none">Log In</span>
+                                </a>
+                            </div>
+                            
+                            <div class="nav-item d-flex align-items-center">
+                                <a asp-area="Identity" asp-page="/Account/Register"  class="nav-link text-body font-weight-bold px-0">
+                                    <i class="fa fa-user me-sm-1"></i>
+                                    <span class="d-sm-inline d-none">Sign In</span>
+                                </a>
+                            </div>
+                        </div>
+                            
+                       
+                    }
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Contenido principal -->
+    <main role="main">
+        @RenderBody()
+    </main>
+
+
+
+    <!-- Footer -->
+
+    @await RenderSectionAsync("sweet", required: false)
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Core theme JS-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,313 @@
+@using Microsoft.AspNetCore.Identity
+@model ProductVm
+@inject UserManager<User> UserManager
+@inject SignInManager<User> UserSignInManager
+
+@functions
+{
+    public double RatingBalance(ProductVm productVm)
+    {
+       var TotalStars = productVm.AllReviews.Sum(review => review.Stars);
+
+       if (Math.Round((TotalStars / productVm.AllReviews.Count), 1) > 0)
+       {
+           return Math.Round((TotalStars / productVm.AllReviews.Count), 1);
+       }
+       return 0;
+    }
+}
+
+<link rel="stylesheet" href="@Url.Content("~/client-assets/css/site.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/client-assets/css/styles.css")" asp-append-version="true" />
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="product-images">
+                <img src="@Model.Product.ImgUrl" class="w-100 rounded product-img" alt="Product">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="product-info">
+                <span class="badge bg-secondary mb-2">@Model.Product.Category.Name</span>
+                <h1 class="product-title">@Model.Product.Name</h1>
+                <div class="rating-section mb-3">
+                    <div class="stars d-flex align-items-center">
+                        <div class="text-warning me-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <span class="rating-value fw-bold">4.5</span>
+                        <span class="text-muted ms-2">(128 reviews)</span>
+                    </div>
+                </div>
+                <div class="pricing my-3">
+                    @if (@Model.Product.Discount !=0)
+                    {
+                        var discount = System.Math.Round((@Model.Product.Discount * 0.01) * @Model.Product.Price);
+                        var realPrice = @Model.Product.Price-@discount; 
+                        <span class="text-decoration-line-through fs-5">$@Model.Product.Price</span>
+                        <span class="fs-3 ms-2 fw-bold text-primary">$@realPrice</span>
+                        <span class="badge bg-danger ms-2">@Model.Product.Discount% OFF</span>
+                    }
+                    else
+                    {
+                        <span class="fs-3 ms-2 fw-bold text-primary">$200</span>
+                    }
+                        
+                       
+                </div>
+                <p class="product-description">@Model.Product.Details</p>
+                <div class="quantity-selector input-group mb-3" style="width: 150px;">
+                    <button class="btn btn-outline-secondary" type="button" id="decrease">-</button>
+                    <input type="number" class="form-control text-center" value="1" min="1" id="quantity">
+                    <button class="btn btn-outline-secondary" type="button" id="increase">+</button>
+                </div>
+                <div class="d-flex gap-2 mb-4">
+                    <button class="btn btn-primary btn-lg flex-grow-1">Add to Cart</button>
+                    <button class="btn btn-success btn-lg flex-grow-1">Buy Now</button>
+                    <button class="btn btn-outline-danger btn-lg"><i class="bi bi-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="reviews-section mt-5">
+            <h2 class="mb-4">Customer Reviews</h2>
+            <div class="overall-rating mb-4">
+                
+                <h4>Overall Rating: @RatingBalance(@Model)/5</h4>
+                <div class="progress" style="height: 25px;">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width:@(RatingBalance(@Model)*20)%" aria-valuenow="@RatingBalance(@Model)" aria-valuemin="0" aria-valuemax="5">@RatingBalance(@Model)</div>
+                </div>
+            </div>
+            
+            <div class="row">
+                @foreach (var obj in @Model.AllReviews)
+                {
+                    <div class="col-md-4 mb-3">
+                        <div class="card review-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="@UserManager.FindByIdAsync(obj.UserId).GetAwaiter().GetResult().ImgProfile" class="rounded-circle me-2" width="40" height="40" alt="User"> <!--User Image-->
+                                    <div>
+                                        <h6 class="mb-0"></h6>
+                                        
+                                        <div class="text-warning">
+                                            @for (int i = 0; i < 5; i++)
+                                            {
+                                                if (i < obj.Stars)
+                                                {
+                                                    <i class="bi bi-star-fill"></i> 
+                                                }
+                                                else
+                                                {
+                                                    <i class="bi bi-star"></i> 
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-end text-opacity-75">Review Date: @obj.Date.Day/@obj.Date.Month/@obj.Date.Year</span>
+                                <p class="card-text">@obj.Message</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    
+    @if (UserSignInManager.IsSignedIn(User))
+    {
+        <div class="write-review mt-5 mb-5">
+            <h2 class="mb-4">Write a Review</h2>
+            <div class="card">
+                <div class="card-body">
+                   
+                    <form method="post" asp-area="Client" asp-controller="Review" asp-action="SendReview">
+                        <input asp-for="@Model.Review.UserId" type="hidden" id="user" value="@UserManager.GetUserId(User)"/>
+                        <input asp-for="@Model.Review.ProductId" type="hidden" id="product" value="@Model.Product.Id"/>
+
+                        <div class="col-md-6">
+                            <div class="rating-card p-4">
+                                <h5 class="mb-4">Rate us:</h5>
+                                <div class="star-rating animated-stars">
+                                    <input  type="radio" id="star5" onclick="setRating(event)" name="rating" class="starValue" value="5">
+                                    <label for="star5" class="bi bi-star-fill" ></label>
+                                    <input type="radio" id="star4" onclick="setRating(event)" name="rating" value="4" class="starValue">
+                                    <label for="star4" class="bi bi-star-fill"></label>
+                                    <input type="radio" id="star3" onclick="setRating(event)" name="rating" value="3" class="starValue">
+                                    <label for="star3" class="bi bi-star-fill"></label>
+                                    <input type="radio" id="star2" onclick="setRating(event)" name="rating" value="2" class="starValue">
+                                    <label for="star2" class="bi bi-star-fill"></label>
+                                    <input type="radio" id="star1" onclick="setRating(event)" name="rating" value="1" class="starValue">
+                                    <label for="star1" class="bi bi-star-fill"></label>
+                                </div>
+                                
+                                <input hidden asp-for="Review.Stars" class="ratingValue" value=""/>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="reviewText" class="form-label"></label>
+                            <textarea role="input" asp-for="@Model.Review.Message" class="form-control" id="reviewText" rows="4" placeholder="Tell us what you liked or didn't like about the product"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div class="recommended-products mt-5">
+    <h2 class="mb-4">You May Also Like</h2>
+    <div id="recommendedCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card product-card">
+                            <div class="position-relative">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">15% OFF</span>
+                                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" class="card-img-top" alt="Product">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Nike Air Force 1</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="text-warning me-2">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <span class="small">(4.5)</span>
+                                </div>
+                                <p class="card-text fw-bold">$120</p>
+                                <button class="btn btn-outline-primary w-100">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card">
+                            <div class="position-relative">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">20% OFF</span>
+                                <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f" class="card-img-top" alt="Product">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Nike Air Max 90</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="text-warning me-2">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                    <span class="small">(4.0)</span>
+                                </div>
+                                <p class="card-text fw-bold">$140</p>
+                                <button class="btn btn-outline-primary w-100">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" class="card-img-top" alt="Product">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Nike Free Run</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="text-warning me-2">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                    <span class="small">(3.5)</span>
+                                </div>
+                                <p class="card-text fw-bold">$110</p>
+                                <button class="btn btn-outline-primary w-100">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card">
+                            <div class="position-relative">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">10% OFF</span>
+                                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5" class="card-img-top" alt="Product">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Nike Zoom</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="text-warning me-2">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <span class="small">(5.0)</span>
+                                </div>
+                                <p class="card-text fw-bold">$130</p>
+                                <button class="btn btn-outline-primary w-100">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#recommendedCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#recommendedCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+        </div>
+    </div>
+</div>
+
+
+
+@{
+    <script>
+          var myCarousel = document.querySelector('#recommendedCarousel');
+          var carousel = new bootstrap.Carousel(myCarousel, {
+          interval: 2000, // Ajusta el intervalo del carrusel si es necesario
+           ride: 'carousel'
+    });
+    
+    
+    document.querySelectorAll('.star-rating:not(.readonly) label').forEach(star => {
+        star.addEventListener('click', function() {
+            this.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+    });
+    
+    function setRating(event) {
+        const starsBtn = document.querySelectorAll(".starValue");
+        document.querySelector(".ratingValue").value=parseFloat(event.target.closest(".starValue").getAttribute("value"));
+    }
+    
+    
+    const review= {
+     ProductId:document.querySelector("#product").value,
+     userId:document.querySelector("#user").value,
+     Message :document.querySelector("#reviewText").value,
+     Stars : document.querySelector(".starValue")
+         }
+    console.log(review)
+    </script>
+
+}
