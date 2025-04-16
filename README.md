@@ -23,7 +23,7 @@ Este proyecto es una aplicación de comercio electrónico desarrollada con **ASP
 ## 📂 Estructura del Proyecto
 
 ```
-📦 Ecommerce
+📦 E-commerce
 ├── 📁 Ecommerce.Data
 │   ├── Data
 │   ├── Migrations
@@ -71,7 +71,7 @@ Este proyecto es una aplicación de comercio electrónico desarrollada con **ASP
 2. Configurar la cadena de conexión en `appsettings.json`:
    ```json
    "ConnectionStrings": {
-     "DefaultConnection": "Server=localhost;Database=EcommerceDB;Trusted_Connection=True;"
+     "DefaultConnection": "Server=localhost;Database=postgres;Trusted_Connection=True;"
    }
    ```
 3. Aplicar migraciones y crear la base de datos:
@@ -95,6 +95,6 @@ Este proyecto es de uso educativo y no tiene licencia comercial.
 
 ---
 
-🔹 **Desarrollado por:**IhanMontalvan 
+🔹 **Desarrollado por:** IhanMontalvan 
 📧 Contacto: ihanMontalvan@gmail.coom
 
