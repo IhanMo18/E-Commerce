@@ -85,7 +85,7 @@ Este proyecto es una aplicación de comercio electrónico desarrollada con **ASP
 
 ## 📌 Uso
 
-- Acceder a la aplicación en `http://localhost:5000`.
+- Acceder a la aplicación en `http://localhost:5432`.
 - Registrar usuarios y realizar compras.
 - Administrar productos y revisar pedidos.
 
