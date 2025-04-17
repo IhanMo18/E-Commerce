@@ -15,10 +15,14 @@
        }
        return 0;
     }
+    
+    
 }
+
 
 <link rel="stylesheet" href="@Url.Content("~/client-assets/css/site.css")" asp-append-version="true" />
 <link rel="stylesheet" href="@Url.Content("~/client-assets/css/styles.css")" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-6 mb-4">
@@ -31,16 +35,22 @@
                 <span class="badge bg-secondary mb-2">@Model.Product.Category.Name</span>
                 <h1 class="product-title">@Model.Product.Name</h1>
                 <div class="rating-section mb-3">
-                    <div class="stars d-flex align-items-center">
-                        <div class="text-warning me-2">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-half"></i>
+                    <div class="stars d-flex">
+                        <div class="text-warning me-2 flex-column ">
+                            @for (double i = 1; i < 6; i++)
+                            {
+                                if (i <= @RatingBalance(Model))
+                                {
+                                    <i class="bi bi-star-fill"></i>
+                                }
+                                else
+                                {
+                                    <i class="bi bi-star"></i>
+                                }
+                            }
                         </div>
-                        <span class="rating-value fw-bold">4.5</span>
-                        <span class="text-muted ms-2">(128 reviews)</span>
+                        <span class="rating-value fw-bold">@RatingBalance(Model)</span>
+                        <span class="text-muted ms-2">(@Model.Product.reviews.Count)</span>
                     </div>
                 </div>
                 <div class="pricing my-3">
@@ -59,7 +69,7 @@
                         
                        
                 </div>
-                <p class="product-description">@Model.Product.Details</p>
+                <p class="product-description text-sans-serif text-5xl">@Model.Product.Details</p>
                 <div class="quantity-selector input-group mb-3" style="width: 150px;">
                     <button class="btn btn-outline-secondary" type="button" id="decrease">-</button>
                     <input type="number" class="form-control text-center" value="1" min="1" id="quantity">
@@ -92,7 +102,14 @@
                         <div class="card review-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="@UserManager.FindByIdAsync(obj.UserId).GetAwaiter().GetResult().ImgProfile" class="rounded-circle me-2" width="40" height="40" alt="User"> <!--User Image-->
+                                    @{
+                                        var user = await UserManager.FindByIdAsync(obj.UserId);
+                                    }
+                                    @if (user != null)
+                                    {
+                                        <img src="@user.ImgProfile" class="overflow-hidden  rounded-circle me-2" width="40" height="40"> <!--User Image-->
+                                    }
+                                    
                                     <div>
                                         <h6 class="mb-0"></h6>
                                         
@@ -154,10 +171,10 @@
 
                         <div class="mb-3">
                             <label for="reviewText" class="form-label"></label>
-                            <textarea role="input" asp-for="@Model.Review.Message" class="form-control" id="reviewText" rows="4" placeholder="Tell us what you liked or didn't like about the product"></textarea>
+                            <textarea  asp-for="@Model.Review.Message" class="form-control" id="reviewText" rows="4" placeholder="Tell us what you liked or didn't like about the product"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                        <button href="javascript:void(0);" type="submit" class="btn btn-primary">Submit Review</button>
                     </form>
                     
                 </div>

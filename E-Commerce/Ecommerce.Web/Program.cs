@@ -44,8 +44,6 @@ builder.Services.AddScoped<IReviewsRepository,ReviewsRepository>();
 builder.Services.AddScoped<IUserRepository,UserRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
-
-
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddScoped<ICategoryService,CategoryService>();

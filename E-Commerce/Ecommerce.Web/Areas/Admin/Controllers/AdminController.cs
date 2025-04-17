@@ -28,7 +28,7 @@ public class AdminController(RoleManager<IdentityRole> _roleManager,UserManager<
                 UserName = userName,
                 Email = email,
                 SessionId = Guid.NewGuid().ToString(),
-                ImgProfile = "/img/useer2.png"
+                ImgProfile = "/img/useer2.jpg"
             };
 
             var resultado = await userManager.CreateAsync(user, passwordAdmin);
@@ -43,7 +43,7 @@ public class AdminController(RoleManager<IdentityRole> _roleManager,UserManager<
     public static async Task CreateRoles(IServiceProvider serviceProvider)
     {
         var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-        string[] roles = { "Admin", "Client" };
+        string[] roles = [RoleType.Admin, RoleType.Client];
 
         foreach (var role in roles)
         {

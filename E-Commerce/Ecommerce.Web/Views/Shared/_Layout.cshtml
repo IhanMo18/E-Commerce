@@ -84,7 +84,7 @@
                     @if (User.IsInRole("Admin"))
                     {
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Admin" asp-controller="Home">Dashboard</a>
+                            <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Index">Dashboard</a>
                         </li>
                     }
                     
@@ -103,8 +103,11 @@
 
                     <!--Shopping Cart-->
                     <a asp-area="Client" asp-controller="Cart" asp-action="Index" class="nav-icon">
-                        <i class="bi bi-cart3 fs-5"></i>
-                        <span class="position-absolute translate-middle badge rounded-pill bg-danger">@count</span>
+                        <i class="bi bi-cart4 fs-5"></i>
+                       @if (count != 0)
+                        {
+                            <span class="position-absolute translate-middle badge rounded-pill bg-danger">@count</span>
+                        } 
                     </a>
                     
                     @if (SignInManager.IsSignedIn(User))
@@ -190,7 +193,7 @@
                             <a class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
                                 @if (userProfile != null)
                                 {
-                                    <img src="@userProfile.ImgProfile" class="overflow-hidden max-width-40 rounded-circle me-2">
+                                    <img src="@userProfile.ImgProfile" class="overflow-hidden  rounded-circle me-2" width="40" height="40">
                                 }
                                 <span class="d-none d-sm-inline">@username</span>
                             </a>
@@ -208,9 +211,14 @@
 
                                 <li><hr class="dropdown-divider"></li>
 
-                                <li><a class="dropdown-item text-danger" asp-area="Identity" asp-page="/Account/Logout">
-                                    <i class="pe-1 bi bi-box-arrow-left"></i>LogOut
-                                </a></li>
+                                <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" method="post" style="display:none;">
+                                    @Html.AntiForgeryToken()
+                                </form>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item text-danger" onclick="document.getElementById('logoutForm').submit();">
+                                        <i class="pe-1 bi bi-box-arrow-left"></i>LogOut
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     }
