@@ -45,11 +45,15 @@ public class HomeController(IProductService productService,ICategoryService cate
             
             productVms.Add(productVm);
         }
-        
-       
-            
-
         return View(productVms);
+    }
+
+    public async Task<IActionResult> Support()
+    {
+        
+        
+        return View();
+
     }
     
     

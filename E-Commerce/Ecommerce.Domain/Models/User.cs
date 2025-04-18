@@ -18,8 +18,13 @@ public class User : IdentityUser
     public String ImgProfile{ get; set; }
 
     public ICollection<Order> Order{ get; set; }
-    public ICollection<Notifications> Notifications{ get; set; }
     
+    // Mensajes que envió este usuario
+    public ICollection<Message> SentMessages{ get; set; }
+
+    // Mensajes que recibió este usuario
+    public ICollection<Message> ReceivedMessages { get; set; }
+    public ICollection<Notifications> Notifications{ get; set; }
     public ICollection<Reviews> Reviews{ get; set; }
     
     public Cart Cart { get; set; }

@@ -65,6 +65,38 @@ namespace Ecommerce.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Ecommerce.Domain.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("MessageText")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceptorId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SenderId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceptorId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Message");
+                });
+
             modelBuilder.Entity("Ecommerce.Domain.Models.Notifications", b =>
                 {
                     b.Property<int>("NotificationsId")
@@ -472,6 +504,25 @@ namespace Ecommerce.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Ecommerce.Domain.Models.Message", b =>
+                {
+                    b.HasOne("Ecommerce.Domain.Models.User", "UserReceptor")
+                        .WithMany("ReceivedMessages")
+                        .HasForeignKey("ReceptorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Ecommerce.Domain.Models.User", "UserSender")
+                        .WithMany("SentMessages")
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("UserReceptor");
+
+                    b.Navigation("UserSender");
+                });
+
             modelBuilder.Entity("Ecommerce.Domain.Models.Notifications", b =>
                 {
                     b.HasOne("Ecommerce.Domain.Models.User", "User")
@@ -646,7 +697,11 @@ namespace Ecommerce.Data.Migrations
 
                     b.Navigation("Order");
 
+                    b.Navigation("ReceivedMessages");
+
                     b.Navigation("Reviews");
+
+                    b.Navigation("SentMessages");
                 });
 #pragma warning restore 612, 618
         }

@@ -70,7 +70,18 @@ public class ApplicationDbContext : IdentityDbContext<User>
             .HasOne(cp => cp.Product)
             .WithMany(p => p.ProductCart)
             .HasForeignKey(cp => cp.ProductId);
-        
+
+        modelBuilder.Entity<Message>()
+            .HasOne(m => m.UserSender)
+            .WithMany(u => u.SentMessages)
+            .HasForeignKey(m => m.SenderId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Message>()
+            .HasOne(m => m.UserReceptor)
+            .WithMany(u => u.ReceivedMessages)
+            .HasForeignKey(m => m.ReceptorId)
+            .OnDelete(DeleteBehavior.Restrict);
         
         
     

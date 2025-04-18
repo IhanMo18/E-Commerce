@@ -1,6 +1,7 @@
 
 using Dashboard.Areas.Admin.Controllers;
 using Dashboard.Filters;
+using Dashboard.Models.Hub;
 using Dashboard.Repository;
 using Ecommerce.Data.Data;
 using Ecommerce.Domain.Interface.Repository;
@@ -48,6 +49,7 @@ builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<IReviewService,ReviewService>();
+builder.Services.AddSignalR();
 
 builder.Services.AddRazorPages();
 var app = builder.Build();
@@ -76,7 +78,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
-
+app.MapHub<MessageHub>("/messageHub");
 app.MapControllerRoute(
         name: "default",
         pattern: "{area=Client}/{controller=Home}/{action=Index}/{id?}")

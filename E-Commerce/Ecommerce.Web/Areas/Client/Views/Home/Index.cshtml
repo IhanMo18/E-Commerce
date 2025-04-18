@@ -30,50 +30,57 @@
                 
                 @if (obj.ShowProduct)
                 {
-                     <div class="d-flex justify-content-center align-items-center mt-3 mb-3">
-                    <div class="card">
-                        @if (@obj.Discount != 0)
-                        {
-                            <span class="percent">-@obj.Discount%</span>
-                        }
-                        <div class="card-image">
-                            <img src="@obj.ImgUrl"  class="card-img-top"  width="100%" height="250px">
-                        </div>
-                        <div class="card-inner">
-                            <span class="text-secondary">@obj.Category.Name</span>
-                            <h5 class="mb-0">@obj.Name</h5>
+                    <div class="d-flex justify-content-center align-items-center mt-3 mb-3">
+                        <div class="card">
                             @if (@obj.Discount != 0)
                             {
-                                var discount = System.Math.Round((@obj.Discount * 0.01) * @obj.Price);
-                                var realPrice = @obj.Price-@discount; 
-                                <div class="price">
-                                    <span>$@realPrice</span>
-                                    <sup>$@obj.Price</sup>
-                                </div>
+                                <span class="percent">-@obj.Discount%</span>
                             }
-                            else
-                            {
-                                <div class="price">
-                                    <span>$@obj.Price</span>
-                                </div>
-                            }
-                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <div class="card-image">
+                                <img src="@obj.ImgUrl"  class="card-img-top"  width="100%" height="250px">
+                            </div>
+                            <div class="card-inner">
+                                <span class="text-secondary">@obj.Category.Name</span>
+                                <h5 class="mb-0">@obj.Name</h5>
+                                @if (@obj.Discount != 0)
+                                {
+                                    var discount = System.Math.Round((@obj.Discount * 0.01) * @obj.Price);
+                                    var realPrice = @obj.Price-@discount; 
+                                    <div class="price">
+                                        <span>$@realPrice</span>
+                                        <sup>$@obj.Price</sup>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="price">
+                                        <span>$@obj.Price</span>
+                                    </div>
+                                }
+                                <div class="mt-3 d-flex justify-content-between align-items-center">
                                 
-                                <a asp-controller="Home" asp-action="Details" asp-route-productId="@obj.Id"  class="btn btn-outline-secondary text-uppercase btn-sm details">Details</a>  
+                                    <a asp-controller="Home" asp-action="Details" asp-route-productId="@obj.Id"  class="btn btn-outline-secondary text-uppercase btn-sm details">Details</a>  
                                 
-                                <div class="d-flex flex-row">
-                                    <a class="wishlist"><i class="bi bi-heart-fill"></i></a>
-                                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@obj.Id" class="cart"><i class="bi bi-cart4"></i></a>
+                                    <div class="d-flex flex-row">
+                                        <a class="wishlist"><i class="bi bi-heart-fill"></i></a>
+                                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@obj.Id" class="cart"><i class="bi bi-cart4"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 }
                
             }
+            
+            
+            <button type="button" class="btn btn-primary chat-trigger" data-bs-toggle="modal" data-bs-target="#chatModal">
+                <i class="fas fa-comments"></i>
+            </button>
         </div>
     </div>
+    
+    <input id="userId" hidden="hidden" value="@UserManager.GetUserId(User)"/>
 </section>
 <partial name="_ProductRecomended"/>
 <partial name="_BestProductRanking"/>

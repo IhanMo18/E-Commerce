@@ -113,16 +113,16 @@ namespace Dashboard.Areas.Identity.Pages.Account
                 var user = CreateUser();
                 user.SessionId = HttpContext.Request.Cookies["SessionId"] ?? string.Empty;
                 user.ImgProfile = "/img/useer2.jpg";
-                await _userStore.SetUserNameAsync((User)user, Input.Username, CancellationToken.None);
-                await _emailStore.SetEmailAsync((User)user, Input.Email, CancellationToken.None);
-                await _userManager.AddToRoleAsync(user, "Client");
-                var result = await _userManager.CreateAsync((User)user, Input.Password);
-
+                await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
+                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                var result = await _userManager.CreateAsync(user, Input.Password);
+                
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user,RoleType.Client);
                     _logger.LogInformation("User created a new account with password.");
 
-                    var userId = await _userManager.GetUserIdAsync((User)user);
+                    var userId = Guid.NewGuid().ToString()/*await _userManager.GetUserIdAsync(user)*/;
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync((User)user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
