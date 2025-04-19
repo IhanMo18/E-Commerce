@@ -12,7 +12,7 @@ namespace Dashboard.Areas.Admin.Controllers;
 
 [Area("Admin")]
 public class HomeController(IProductService productService,ICategoryService categoryService,UserManager<User> userManager,
-    IWebHostEnvironment webHostEnvironment,IReviewService reviewService):Controller
+    IWebHostEnvironment webHostEnvironment,IReviewService reviewService,IMessageService messageService):Controller
 {
     public async Task<IActionResult> Index()
     {
@@ -48,12 +48,9 @@ public class HomeController(IProductService productService,ICategoryService cate
         return View(productVms);
     }
 
-    public async Task<IActionResult> Support()
+    public async Task<IActionResult> SupportAdmin()
     {
-        
-        
-        return View();
-
+        return View( await messageService.GetAllAsync());
     }
     
     

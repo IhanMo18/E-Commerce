@@ -74,9 +74,14 @@
             }
             
             
-            <button type="button" class="btn btn-primary chat-trigger" data-bs-toggle="modal" data-bs-target="#chatModal">
-                <i class="fas fa-comments"></i>
-            </button>
+            @if (User.IsInRole(RoleType.Client))
+            {
+                <button type="button" class="btn btn-primary chat-trigger" data-bs-toggle="modal" data-bs-target="#chatModal">
+                    <i class="fas fa-comments"></i>
+                </button>  
+            }
+           
+            
         </div>
     </div>
     

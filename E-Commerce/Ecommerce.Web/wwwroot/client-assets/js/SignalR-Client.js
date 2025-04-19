@@ -1,5 +1,5 @@
 var userId = document.querySelector("#userId").value;
-
+var adminList
 
 const connection = new signalR.HubConnectionBuilder()
     .withUrl("/messageHub")
@@ -12,7 +12,14 @@ connection.start().then(() => {
 }).catch((error) => console.log(error));
 
 
-connection.on("ReceiveSupportMessage", function (message) {
+connection.on("OnlineAdminList", function (connectedAdmins) {
+    adminList = connectedAdmins
+    console.log(`Admin:${adminList}`)
+});
+
+
+
+connection.on("ReceiveSupportMessage", function (userSenderId,message) {
     const chatDiv = document.querySelector(".message-group");
     const messageHTML = `
         <div class="message">
@@ -23,44 +30,5 @@ connection.on("ReceiveSupportMessage", function (message) {
             </div>
         </div>`;
     chatDiv.insertAdjacentHTML('beforeend', messageHTML);
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const chatModal = document.getElementById("chatModal");
-    
-    if (chatModal) {
-        chatModal.addEventListener("shown.bs.modal", () => {
-            
-            const sendButton = document.getElementById("sendButton");
-            const messageInput = document.getElementById("message");
-
-            if (sendButton && messageInput) {
-                sendButton.addEventListener("click", () => {
-                    const message = messageInput.value.trim();
-                    if (message === "") return;
-                    
-                    connection.invoke("SendToSupport" ,userId, message )
-                        .catch(err => console.error(err.toString()));
-                    
-                    
-                    const chatDiv = document.querySelector(".message-group");
-                    const messageHTML = `
-                    <div class="message sent">
-                        <img src="" class="rounded-circle message-avatar" alt="Client">
-                           <div class="message-content">
-                             <p>${message}</p>
-                            <small class="message-time">${new Date().toLocaleTimeString()}</small>
-                           </div>
-                    </div>`;
-                    
-                    
-                    chatDiv.insertAdjacentHTML('beforeend', messageHTML);
-                    messageInput.value = "";
-                });
-                sendButtonRegistered = true;
-            }
-        });
-    }
 });
 

@@ -1,7 +1,6 @@
 @using System.Security.Claims
 @using Ecommerce.Domain.Models
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
 <heead>
@@ -71,9 +70,53 @@
 </div>
 
 
-
 <script>
-  var currentUserId = "@User.FindFirstValue(ClaimTypes.NameIdentifier)";
+document.addEventListener("DOMContentLoaded", function () {
+    const chatModal = document.getElementById("chatModal");
+
+    if (chatModal) {
+        chatModal.addEventListener("shown.bs.modal", () => {
+            const sendButton = document.querySelector("#sendButton");
+            const messageInput = document.querySelector("#message");
+
+            if (!sendButton || !messageInput) {
+                console.error("Botón o campo de mensaje no encontrado.");
+                return;
+            }
+
+            sendButton.addEventListener("click", () => {
+                const messageText = messageInput.value.trim();
+
+                if (messageText === "") return;
+
+                if (typeof adminList === "undefined" || typeof userId === "undefined" || typeof connection === "undefined") {
+                    console.error("Variables necesarias no están definidas (adminList, userId o connection).");
+                    return;
+                }
+
+                console.log(`El user id de el 0 es ${adminList[0]}`);
+                console.log(`El message es ${messageText}`);
+
+                connection.invoke("SendToSupport", userId, adminList[0], messageText)
+                    .catch(err => console.error(err.toString()));
+
+                const chatDiv = document.querySelector(".message-group");
+                const messageHTML = `
+                    <div class="message sent">
+                        <img src="" class="rounded-circle message-avatar" alt="Client">
+                        <div class="message-content">
+                            <p>${messageText}</p>
+                            <small class="message-time">${new Date().toLocaleTimeString()}</small>
+                        </div>
+                    </div>`;
+
+                chatDiv.insertAdjacentHTML('beforeend', messageHTML);
+                messageInput.value = "";
+            });
+        });
+    }
+});
 </script>
+
 
 

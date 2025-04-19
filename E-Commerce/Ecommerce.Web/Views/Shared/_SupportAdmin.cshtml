@@ -1,0 +1,21 @@
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+    <script>
+      
+       const connection = new signalR.HubConnectionBuilder()
+      .withUrl("/messageHub")
+      .build();
+    
+     connection.start().then(() => {
+     connection.invoke("Register", adminId, "Admin");
+     console.log("Admin registrado en el Hub");
+     }).catch(err => console.error(err.toString()));
+     
+     connection.on("ReceiveMessageFromClient", function (userSender,userReceptorId, messageText){        
+     console.log("Mensaje recibido de:", userSender, "Mensaje:", messageText);
+     alert("Nuevo mensaje de cliente: " + messageText);
+     });
+     
+    </script>
+}
+

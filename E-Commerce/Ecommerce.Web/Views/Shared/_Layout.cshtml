@@ -26,10 +26,8 @@
                 count = cart.ProductCart?.Count ?? 0;
             }
         }
-    }
-    else
-    {
-        var sessionId = (string)TempData["seessionId"];
+    }else{
+        var sessionId = (string)TempData["sessionId"];
         var cartTask = Service.SearchCartBySessionid(sessionId); 
         var cart = await cartTask;
         
@@ -80,11 +78,11 @@
                     <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
                     
-                    @if (User.IsInRole("Admin"))
+                    @if (User.IsInRole(RoleType.Admin))
                     {
                         
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Support">Support</a>
+                            <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="SupportAdmin">Support</a>
                         </li>
                         
                         <li class="nav-item">
@@ -266,23 +264,26 @@
 
     <!-- Core theme JS-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Agrega esto en tu HTML, justo antes de tu script principal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+  
 
-    @if (User.IsInRole("Admin"))
+    @if (User.IsInRole(RoleType.Client))
     {
-        <script asp-append-version="true" src="client-assets/js/SignalR-Support.js"></script>
+        <!-- Agrega esto en tu HTML, justo antes de tu script principal -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+        <script asp-append-version="true" src="client-assets/js/SignalR-Client.js"></script>
+        <partial name="_SupportContact"/>
     }
     else
     {
-        <script asp-append-version="true" src="client-assets/js/SignalR-Client.js"></script>
+        
     }
-   
+        
+    
    
     @section Scripts {
         <partial name="_ValidationScriptsPartial" />
     }
-    <partial name="_SupportContact"/>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -56,8 +56,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvSG9tZS9Qcm9kdWN0c1RhYmxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ihan/Desktop/C\#Projects/E-Commerce/Ecommerce.Web/Areas/Admin/Views/Home/Support.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvSG9tZS9TdXBwb3J0LmNzaHRtbA==
+[/Users/ihan/Desktop/C\#Projects/E-Commerce/Ecommerce.Web/Areas/Admin/Views/Home/SupportAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvSG9tZS9TdXBwb3J0QWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/ihan/Desktop/C\#Projects/E-Commerce/Ecommerce.Web/Areas/Admin/Views/_ViewImports.cshtml]

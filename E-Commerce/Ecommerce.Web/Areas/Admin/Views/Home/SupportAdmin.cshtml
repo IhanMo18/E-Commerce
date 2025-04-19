@@ -1,3 +1,9 @@
+@using Ecommerce.Domain.Models
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Ecommerce.Domain.Models.Message>
+@inject UserManager<User> UserManager
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,11 +14,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="@Url.Content("~/admin-assets/css/soft-ui-dashboard.css")" asp-append-version="true"/>
-    <link rel="stylesheet" href="@Url.Content("admin-assets/css/Support.css")">
+    <link rel="stylesheet" href="@Url.Content("~/admin-assets/css/Support.css")">
 </head>
 <body>
 
 <div class="container-fluid h-100">
+    <input hidden id="userId" value="@(UserManager.GetUserId(User))"/>
     <div class="row h-100">
         <div class="col-md-3 sidebar p-0" id="chatSidebar">
             <div class="p-3 border-bottom">
@@ -24,7 +31,7 @@
                 </div>
             </div>
             <div class="conversation-list">
-                <div class="conversation-item active p-3 border-bottom">
+                <div class="conversation-item p-3 border-bottom">
                     <div class="d-flex align-items-center">
                         <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=40&h=40" class="rounded-circle conversation-avatar" alt="User">
                         <div class="ms-3">
@@ -33,17 +40,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="conversation-item p-3 border-bottom">
-                    <div class="d-flex align-items-center">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=40&h=40" class="rounded-circle conversation-avatar" alt="User">
-                        <div class="ms-3">
-                            <h6 class="mb-0">Sarah Wilson</h6>
-                            <small class="text-muted">I need assistance with...</small>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+
         <div class="col-md-9 chat-section p-0">
             <div class="chat-header p-3 border-bottom">
                 <div class="d-flex align-items-center">
@@ -61,43 +60,40 @@
 
 
             <div class="chat-messages p-3">
-                <div class="message-group received">
-                    <div class="message">
+                <div class="message-group">
+                    <div class="message sent">
                         <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=32&h=32" class="rounded-circle message-avatar" alt="Support">
                         <div class="message-content">
                             <p>Hello! How can I help you today?</p>
-                            <small class="message-time">10:00 AM</small>
+                            <small class="message-time"></small>
                         </div>
-                    </div>
-                </div>
-
-                <div class="message-group">
-                    <div class="message sent">
-                        <div class="message-content">
-                            <p>Hi, I'm having issues with my account</p>
-                            <small class="message-time">10:01 AM</small>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=32&h=32" class="rounded-circle message-avatar" alt="User">
                     </div>
                 </div>
             </div>
+
+
+
             <div class="chat-input p-3 border-top">
-                <form id="messageForm" class="d-flex align-items-center">
+                <div id="messageForm" class="d-flex align-items-center">
                     <div class="input-group curved-input">
                         <input type="file" class="d-none" id="imageUpload" accept="image/*">
                         <button type="button" class="btn btn-outline-secondary rounded-start-pill" onclick="document.getElementById('imageUpload').click()">
                             <i class="fas fa-paperclip"></i>
                         </button>
-                        <input type="text" class="form-control" placeholder="Type your message..." aria-label="Message">
-                        <button type="submit" class="btn btn-primary">
+                        <input type="text" id="message" class="form-control" placeholder="Type your message..." aria-label="Message">
+                        <button type="submit" id="sendButton" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script asp-append-version="true" src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+<script asp-append-version="true" src=@Url.Content("~/admin-assets/js/SignalR-Support.js")></script>
+<script asp-append-version="true" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>l>
+</html>
