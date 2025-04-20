@@ -1,10 +1,6 @@
 var userId = document.querySelector("#userId").value;
 var adminList
 
-const connection = new signalR.HubConnectionBuilder()
-    .withUrl("/messageHub")
-    .build();
-
 connection.start().then(() => {
     connection.invoke("Register", userId, "Client");
     console.log("SignalR Conectado");
@@ -12,18 +8,35 @@ connection.start().then(() => {
 }).catch((error) => console.log(error));
 
 
-connection.on("OnlineAdminList", function (connectedAdmins) {
+
+//Para saber Todos los Admins Coonectados
+connection.on("OnlineAdminList",async function (connectedAdmins) {
     adminList = connectedAdmins
     console.log(`Admin:${adminList}`)
+    console.log(`Admin0:${adminList[0]}`)
+    
+    const response = await fetch(`/users/img/${adminList[0]}`);
+    const data = await response.json();
+    console.log(data.url)
+    
+    const divPhotos = document.querySelectorAll(".photo");
+    divPhotos.forEach((i)=>i.src=`${data.url}`)
+    const messageTime = document.querySelector(".message-time")
+    messageTime.innerHTML=new Date().toLocaleTimeString()
 });
 
 
 
-connection.on("ReceiveSupportMessage", function (userSenderId,message) {
+//Para recibir los mensajes de Soporte
+connection.on("ReceiveSupportMessage", async function (userSender,message) {
+   
+    const response = await fetch(`/users/img/${adminList[0]}`);
+    const data = await response.json();
+    
     const chatDiv = document.querySelector(".message-group");
     const messageHTML = `
         <div class="message">
-            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=32&h=32" class="rounded-circle message-avatar" alt="Support">
+            <img src="${data.url}" class="rounded-circle message-avatar" alt="Support">
             <div class="message-content">
                 <p>${message}</p>
                 <small class="message-time">${new Date().toLocaleTimeString()}</small>
@@ -31,4 +44,5 @@ connection.on("ReceiveSupportMessage", function (userSenderId,message) {
         </div>`;
     chatDiv.insertAdjacentHTML('beforeend', messageHTML);
 });
+
 

@@ -1,12 +1,10 @@
-using System.Data.Entity;
+
 using Dashboard.Models;
 using Ecommerce.Domain.Interface.Service;
 using Ecommerce.Domain.Models;
-using Ecommerce.Services.ProductService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Dashboard.Areas.Admin.Controllers;
 
@@ -23,10 +21,9 @@ public class HomeController(IProductService productService,ICategoryService cate
             Products = (await productService.GetAllAsync())!,
             AllReviews = (await reviewService.GetAllAsync())!
         };
-        
-
         return View(userVm);
     }
+    
     
     public async Task<IActionResult>ProductsTables()
     {

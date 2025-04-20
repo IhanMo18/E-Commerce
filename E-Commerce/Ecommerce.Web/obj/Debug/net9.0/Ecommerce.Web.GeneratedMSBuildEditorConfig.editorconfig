@@ -264,12 +264,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ihan/Desktop/C\#Projects/E-Commerce/Ecommerce.Web/Views/Shared/_LoadingPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2FkaW5nUGFnZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/ihan/Desktop/C\#Projects/E-Commerce/Ecommerce.Web/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ihan/Desktop/C\#Projects/E-Commerce/Ecommerce.Web/Views/Shared/_SupportAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19TdXBwb3J0QWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/ihan/Desktop/C\#Projects/E-Commerce/Ecommerce.Web/Views/Shared/_SupportContact.cshtml]

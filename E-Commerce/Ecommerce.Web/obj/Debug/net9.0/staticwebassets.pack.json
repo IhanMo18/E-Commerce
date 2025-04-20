@@ -1493,6 +1493,10 @@
       "PackagePath": "staticwebassets/img/product/f65c60dd-9af1-44ff-946f-cd0608d4cb20.png"
     },
     {
+      "Id": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/img/support.jpg",
+      "PackagePath": "staticwebassets/img/support.jpg"
+    },
+    {
       "Id": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/img/useer2.jpg",
       "PackagePath": "staticwebassets/img/useer2.jpg"
     },

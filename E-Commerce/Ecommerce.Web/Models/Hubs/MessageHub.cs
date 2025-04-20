@@ -29,14 +29,14 @@ public class MessageHub(IMessageRepository _messageRepository) :Microsoft.AspNet
             case RoleType.Admin:
                 await Groups.AddToGroupAsync(Context.ConnectionId, RoleType.Admin);
                 connectedAdmins.Add(userId);
-                await Clients.All.SendAsync("OnlineAdminList", connectedAdmins.ToList());
+                await SendUsersOnline();
                 break;
             
             
             case RoleType.Client:
                 await Groups.AddToGroupAsync(Context.ConnectionId, $"Client-{userId}");
                 connectedClients.Add(userId);
-                await Clients.Group(RoleType.Admin).SendAsync("OnlineClientList", connectedClients.ToList());
+                await SendUsersOnline();
                 break;
         }
     }
@@ -66,21 +66,35 @@ public class MessageHub(IMessageRepository _messageRepository) :Microsoft.AspNet
             SenderId = userSenderId,
             ReceptorId = userReceptorId,
             MessageText = messageText,
-            DateTime = DateTime.Now
+            DateTime = DateTime.UtcNow
         };
         _messageRepository.Update(message);
-        await Clients.Group($"Client-{userReceptorId}").SendAsync("ReceiveSupportMessage",userSenderId ,message);
+        await Clients.Group($"Client-{userReceptorId}").SendAsync("ReceiveSupportMessage",userReceptorId,messageText);
     }
-    
-    
+
+
+    private async Task SendUsersOnline()
+    {
+        await Clients.All.SendAsync("OnlineAdminList", connectedAdmins.ToList());
+        await Clients.Group(RoleType.Admin).SendAsync("OnlineClientList", connectedClients.ToList());
+    }
+
+
     //Para obtener el historial de Conversaciones entre dos usuarios (cliente o admin)
-    public async Task GetHistorial(string user1Id, string user2Id)
+    public async Task GetHistory(string user1Id, string user2Id)
     {
         var messages = await _messageRepository.GetConversationAsync(user1Id, user2Id);
-        
         //Caller permite que solo el cliente que inooca el metoodo es el que lo recibe
-        await Clients.Caller.SendAsync("ReceiveHistorial", messages);
+        await Clients.Caller.SendAsync("ReceivedHistory", messages);
     }
+    
+   
+    
+    
+    
+    
+    
+    
     
     //Se Descconecta un Usuario Se borra de la Lista
     public override async Task OnDisconnectedAsync(Exception exception)
@@ -95,14 +109,14 @@ public class MessageHub(IMessageRepository _messageRepository) :Microsoft.AspNet
             if (connectedClients.Contains(userId))
             {
                 connectedClients.Remove(userId);
-                await Clients.Group(RoleType.Admin).SendAsync("UpdateClientList", connectedClients.ToList());
+                await SendUsersOnline();
             }
 
             // Si es un admin, quitarlo de la lista y notificar
             if (connectedAdmins.Contains(userId))
             {
                 connectedAdmins.Remove(userId);
-                await Clients.Group(RoleType.Admin).SendAsync("OnlineAdminList", connectedAdmins.ToList());
+                await SendUsersOnline();
             }
         }
         await base.OnDisconnectedAsync(exception);

@@ -17,15 +17,13 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="container-fluid h-100">
-        <div class="row h-100">
-          
-          
-          <div class="col-12 chat-section p-0">
+        <div class="row h-100 profile">
+            <div class="col-12 chat-section p-0">
             <!-- Updated: Added close button to header -->
             <div class="chat-header p-3 border-bottom">
               <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
-                  <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=48&h=48" class="rounded-circle chat-avatar" alt="Support Agent">
+                  <img src="" class="photo rounded-circle message-avatar" alt=""/>
                   <div class="ms-3">
                     <h5 class="mb-0">Support Agent</h5>
                     <small class="text-muted">Online</small>
@@ -34,19 +32,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
             </div>
-            
+
             <div class="chat-messages p-3">
-              <div class="message-group received">
+              <div class="photo message-group received">
                 <div class="message">
-                  <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=32&h=32" class="rounded-circle message-avatar" alt="Support">
+                  <img src="" class="photo rounded-circle message-avatar" alt=""/>
                   <div class="message-content">
                     <p>Hello! How can I help you today?</p>
-                    <small class="message-time">10:00 AM</small>
+                    <small class="message-time"></small>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div class="chat-input p-4 border-top">
               <div id="messageForm" class="d-flex align-items-center">
                 <div class="input-group curved-input">
@@ -61,8 +59,7 @@
                 </div>
               </div>
             </div>
-            
-          </div>
+         </div>
         </div>
       </div>
     </div>
@@ -71,11 +68,15 @@
 
 
 <script>
+  
+  
+  //Para enviar los mensajes de usuario a soporte
 document.addEventListener("DOMContentLoaded", function () {
     const chatModal = document.getElementById("chatModal");
 
     if (chatModal) {
         chatModal.addEventListener("shown.bs.modal", () => {
+           
             const sendButton = document.querySelector("#sendButton");
             const messageInput = document.querySelector("#message");
 
@@ -84,38 +85,42 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            sendButton.addEventListener("click", () => {
-                const messageText = messageInput.value.trim();
+            sendButton.addEventListener("click", async () => {
+              const messageText = messageInput.value.trim();
+              if (messageText === "") return;
 
-                if (messageText === "") return;
+              if (typeof adminList === "undefined" || typeof userId === "undefined" || typeof connection === "undefined") {
 
-                if (typeof adminList === "undefined" || typeof userId === "undefined" || typeof connection === "undefined") {
-                    console.error("Variables necesarias no están definidas (adminList, userId o connection).");
-                    return;
-                }
+                console.log(`El adminList ${adminList}`)
+                console.log(`El userId ${userId}`)
+                console.error("Variables necesarias no están definidas (adminList, userId o connection).");
+                return;
+              }
 
-                console.log(`El user id de el 0 es ${adminList[0]}`);
-                console.log(`El message es ${messageText}`);
-
-                connection.invoke("SendToSupport", userId, adminList[0], messageText)
-                    .catch(err => console.error(err.toString()));
-
-                const chatDiv = document.querySelector(".message-group");
-                const messageHTML = `
+              connection.invoke("SendToSupport",userId, adminList[0], messageText)
+                .catch(err => console.error(err.toString()));
+                
+              const response = await fetch(`/users/img/${userId}`);
+              const data = await response.json();
+              console.log(data.url)
+          
+              const chatDiv = document.querySelector(".message-group");
+              const messageHTML = `
                     <div class="message sent">
-                        <img src="" class="rounded-circle message-avatar" alt="Client">
+                        <img src=${data.url} class="rounded-circle message-avatar" alt="Client">
                         <div class="message-content">
                             <p>${messageText}</p>
                             <small class="message-time">${new Date().toLocaleTimeString()}</small>
                         </div>
                     </div>`;
 
-                chatDiv.insertAdjacentHTML('beforeend', messageHTML);
-                messageInput.value = "";
+              chatDiv.insertAdjacentHTML('beforeend', messageHTML);
+              messageInput.value = "";
             });
         });
     }
 });
+
 </script>
 
 
