@@ -17,6 +17,7 @@ Este proyecto es una aplicación de comercio electrónico desarrollada con **ASP
 - **Framework:** ASP.NET Core MVC
 - **Base de Datos:** PostrgeSQL
 - **ORM:** Entity Framework Core
+- **Comunicacion:** SignalR
 - **Frontend:** Bootstrap + Razor Views
 - **Autenticación:** Identity Framework
 
