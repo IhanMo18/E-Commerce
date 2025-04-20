@@ -9,6 +9,7 @@ Este proyecto es una aplicación de comercio electrónico desarrollada con **ASP
 - Registro e inicio de sesión de usuarios con **Identity**.
 - Gestión de productos con categorización.
 - Carrito de compras con actualización en tiempo real.
+- Comunicacion directa con Soporte a tiempo Real.
 - Envio de correos electrónicos para confirmación de pedidos.
 - Seguridad con autenticación y autorización por roles.
 
