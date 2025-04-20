@@ -43,6 +43,7 @@ Este proyecto es una aplicación de comercio electrónico desarrollada con **ASP
 │   ├── ProductService
 │   ├── ReviewService
 │   ├── EmailSender.cs
+|   ├── MessageService
 │
 ├── 📁 Ecommerce.Web
 │   ├── Properties
@@ -58,7 +59,6 @@ Este proyecto es una aplicación de comercio electrónico desarrollada con **ASP
 │   ├── appsettings.json
 │   ├── appsettings.Development.json
 │   ├── Program.cs
-│   ├── Service.cs
 │
 ├── ScaffoldingReadMe.txt
 ```
@@ -87,7 +87,7 @@ Este proyecto es una aplicación de comercio electrónico desarrollada con **ASP
 
 ## 📌 Uso
 
-- Acceder a la aplicación en `http://localhost:5432`.
+- Acceder a la aplicación en `http://localhost:5245`.
 - Registrar usuarios y realizar compras.
 - Administrar productos y revisar pedidos.
 
