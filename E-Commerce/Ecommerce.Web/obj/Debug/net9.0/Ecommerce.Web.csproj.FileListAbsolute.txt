@@ -1393,5 +1393,5 @@
 /Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/bin/Debug/net9.0/System.Net.WebSockets.WebSocketProtocol.dll
 /Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/tui3zv6ijr-2wh3euyh1y.gz
 /Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/0nzmvq7zda-khmi4c42ij.gz
-/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-66d0d7sqnc.gz
-/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-cibj9duulq.gz
+/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-i9ife83on7.gz
+/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-wq3juba6q6.gz

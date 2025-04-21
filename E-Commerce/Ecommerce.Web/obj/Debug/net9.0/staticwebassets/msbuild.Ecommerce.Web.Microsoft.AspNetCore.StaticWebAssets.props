@@ -1920,8 +1920,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>66d0d7sqnc</Fingerprint>
-      <Integrity>riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA=</Integrity>
+      <Fingerprint>wq3juba6q6</Fingerprint>
+      <Integrity>uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\admin-assets\js\SignalR-Support.js'))</OriginalItemSpec>
@@ -5394,8 +5394,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>cibj9duulq</Fingerprint>
-      <Integrity>BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68=</Integrity>
+      <Fingerprint>i9ife83on7</Fingerprint>
+      <Integrity>Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\client-assets\js\SignalR-Client.js'))</OriginalItemSpec>

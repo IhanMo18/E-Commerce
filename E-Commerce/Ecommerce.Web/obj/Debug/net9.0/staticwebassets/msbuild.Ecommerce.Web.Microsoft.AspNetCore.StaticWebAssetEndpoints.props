@@ -1272,17 +1272,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"zvulxhats1"},{"Name":"integrity","Value":"sha256-nxR2O8Iw1/h4qM7mXIdKEFEP6yULZaYoY7adJt7iIbU="},{"Name":"label","Value":"_content/Ecommerce.Web/admin-assets/js/plugins/smooth-scrollbar.min.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"48421"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022nxR2O8Iw1/h4qM7mXIdKEFEP6yULZaYoY7adJt7iIbU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 16 Apr 2025 10:57:54 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Ecommerce.Web/admin-assets/js/SignalR-Support.66d0d7sqnc.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\admin-assets\js\SignalR-Support.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"66d0d7sqnc"},{"Name":"integrity","Value":"sha256-riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA="},{"Name":"label","Value":"_content/Ecommerce.Web/admin-assets/js/SignalR-Support.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3058"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA=\u0022"},{"Name":"Last-Modified","Value":"Sun, 20 Apr 2025 21:26:31 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Ecommerce.Web/admin-assets/js/SignalR-Support.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\admin-assets\js\SignalR-Support.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3058"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA=\u0022"},{"Name":"Last-Modified","Value":"Sun, 20 Apr 2025 21:26:31 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3865"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s=\u0022"},{"Name":"Last-Modified","Value":"Mon, 21 Apr 2025 17:04:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Ecommerce.Web/admin-assets/js/SignalR-Support.wq3juba6q6.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\admin-assets\js\SignalR-Support.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wq3juba6q6"},{"Name":"integrity","Value":"sha256-uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s="},{"Name":"label","Value":"_content/Ecommerce.Web/admin-assets/js/SignalR-Support.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3865"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s=\u0022"},{"Name":"Last-Modified","Value":"Mon, 21 Apr 2025 17:04:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Ecommerce.Web/admin-assets/js/soft-ui-dashboard.5si3p8orbh.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\admin-assets\js\soft-ui-dashboard.js'))</AssetFile>
@@ -3588,17 +3588,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ZfEVpnGr\u002BTXr1LfZZrITWxGlhBLv4FhqV6hrt5xhoTE="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"330"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ZfEVpnGr\u002BTXr1LfZZrITWxGlhBLv4FhqV6hrt5xhoTE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 14 Feb 2025 16:11:52 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Ecommerce.Web/client-assets/js/SignalR-Client.cibj9duulq.js">
+    <StaticWebAssetEndpoint Include="_content/Ecommerce.Web/client-assets/js/SignalR-Client.i9ife83on7.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\client-assets\js\SignalR-Client.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"cibj9duulq"},{"Name":"integrity","Value":"sha256-BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68="},{"Name":"label","Value":"_content/Ecommerce.Web/client-assets/js/SignalR-Client.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1494"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68=\u0022"},{"Name":"Last-Modified","Value":"Sun, 20 Apr 2025 21:31:55 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"i9ife83on7"},{"Name":"integrity","Value":"sha256-Nii9C5JDlClmeQXFG5XbJKybbyU7oHh\u002BaoKvgxC7D\u002Bo="},{"Name":"label","Value":"_content/Ecommerce.Web/client-assets/js/SignalR-Client.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1579"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Nii9C5JDlClmeQXFG5XbJKybbyU7oHh\u002BaoKvgxC7D\u002Bo=\u0022"},{"Name":"Last-Modified","Value":"Mon, 21 Apr 2025 17:11:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Ecommerce.Web/client-assets/js/SignalR-Client.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\client-assets\js\SignalR-Client.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1494"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68=\u0022"},{"Name":"Last-Modified","Value":"Sun, 20 Apr 2025 21:31:55 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Nii9C5JDlClmeQXFG5XbJKybbyU7oHh\u002BaoKvgxC7D\u002Bo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1579"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Nii9C5JDlClmeQXFG5XbJKybbyU7oHh\u002BaoKvgxC7D\u002Bo=\u0022"},{"Name":"Last-Modified","Value":"Mon, 21 Apr 2025 17:11:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Ecommerce.Web/client-assets/js/site.fr7q2aak1r.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\client-assets\js\site.js'))</AssetFile>

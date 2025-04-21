@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hbra3/qF1gwrzS+J5v2a2LSPa5bOwJqDy72mzWcneys=",
+  "Hash": "czqfyJyBKa/kBb7OvE+QCe1pfB2Xkb2aMW9sFL3Ao8w=",
   "Source": "Ecommerce.Web",
   "BasePath": "_content/Ecommerce.Web",
   "Mode": "Default",
@@ -2579,12 +2579,12 @@
       "OriginalItemSpec": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/admin-assets/css/nucleo-icons.css"
     },
     {
-      "Identity": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-cibj9duulq.gz",
+      "Identity": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-i9ife83on7.gz",
       "SourceId": "Ecommerce.Web",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/Ecommerce.Web",
-      "RelativePath": "client-assets/js/SignalR-Client#[.{fingerprint=cibj9duulq}]?.js.gz",
+      "RelativePath": "client-assets/js/SignalR-Client#[.{fingerprint=i9ife83on7}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -2593,8 +2593,8 @@
       "RelatedAsset": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/client-assets/js/SignalR-Client.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "llwmoou8xz",
-      "Integrity": "d1mm1vxfMJOAGDsownRHH60ERhiQrsa19OUjdC9q3Dc=",
+      "Fingerprint": "oyerpxhgku",
+      "Integrity": "gHHzGoEZVs8/Almn9KzE9cBgqtiCUk6AHJ6zNbu8Hyo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/client-assets/js/SignalR-Client.js"
@@ -4595,12 +4595,12 @@
       "OriginalItemSpec": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/client-assets/lib/bootstrap/dist/css/bootstrap.css.map"
     },
     {
-      "Identity": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-66d0d7sqnc.gz",
+      "Identity": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-wq3juba6q6.gz",
       "SourceId": "Ecommerce.Web",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/Ecommerce.Web",
-      "RelativePath": "admin-assets/js/SignalR-Support#[.{fingerprint=66d0d7sqnc}]?.js.gz",
+      "RelativePath": "admin-assets/js/SignalR-Support#[.{fingerprint=wq3juba6q6}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -4609,8 +4609,8 @@
       "RelatedAsset": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/admin-assets/js/SignalR-Support.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "avgb2ukow0",
-      "Integrity": "2hvCtNhi9HDZtyvhrAoV3e66hi912MXeE0LFQyOCPEQ=",
+      "Fingerprint": "adp4taa1u7",
+      "Integrity": "bt4TCpSpX0UX4Qm62rqrvDIlXphDOllMXoaMPPiylkE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/admin-assets/js/SignalR-Support.js"
@@ -7339,8 +7339,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "66d0d7sqnc",
-      "Integrity": "riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA=",
+      "Fingerprint": "wq3juba6q6",
+      "Integrity": "uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/admin-assets/js/SignalR-Support.js"
@@ -11392,8 +11392,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "cibj9duulq",
-      "Integrity": "BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68=",
+      "Fingerprint": "i9ife83on7",
+      "Integrity": "Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/client-assets/js/SignalR-Client.js"
@@ -29268,13 +29268,13 @@
       ]
     },
     {
-      "Route": "admin-assets/js/SignalR-Support.66d0d7sqnc.js",
-      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-66d0d7sqnc.gz",
+      "Route": "admin-assets/js/SignalR-Support.js",
+      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-wq3juba6q6.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000984251969"
+          "Quality": "0.000729394602"
         }
       ],
       "ResponseHeaders": [
@@ -29284,19 +29284,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1015"
+          "Value": "1370"
         },
         {
           "Name": "ETag",
-          "Value": "\"2hvCtNhi9HDZtyvhrAoV3e66hi912MXeE0LFQyOCPEQ=\""
+          "Value": "\"bt4TCpSpX0UX4Qm62rqrvDIlXphDOllMXoaMPPiylkE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:26:31 GMT"
+          "Value": "Mon, 21 Apr 2025 17:04:50 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -29312,26 +29312,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA=\""
+          "Value": "W/\"uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "66d0d7sqnc"
-        },
-        {
-          "Name": "label",
-          "Value": "admin-assets/js/SignalR-Support.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA="
+          "Value": "sha256-uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s="
         }
       ]
     },
     {
-      "Route": "admin-assets/js/SignalR-Support.66d0d7sqnc.js",
+      "Route": "admin-assets/js/SignalR-Support.js",
       "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/admin-assets/js/SignalR-Support.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -29341,7 +29333,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3058"
+          "Value": "3865"
         },
         {
           "Name": "Content-Type",
@@ -29349,11 +29341,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA=\""
+          "Value": "\"uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:26:31 GMT"
+          "Value": "Mon, 21 Apr 2025 17:04:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s="
+        }
+      ]
+    },
+    {
+      "Route": "admin-assets/js/SignalR-Support.js.gz",
+      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-wq3juba6q6.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1370"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bt4TCpSpX0UX4Qm62rqrvDIlXphDOllMXoaMPPiylkE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 17:04:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bt4TCpSpX0UX4Qm62rqrvDIlXphDOllMXoaMPPiylkE="
+        }
+      ]
+    },
+    {
+      "Route": "admin-assets/js/SignalR-Support.wq3juba6q6.js",
+      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-wq3juba6q6.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000729394602"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1370"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bt4TCpSpX0UX4Qm62rqrvDIlXphDOllMXoaMPPiylkE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 17:04:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wq3juba6q6"
+        },
+        {
+          "Name": "label",
+          "Value": "admin-assets/js/SignalR-Support.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s="
+        }
+      ]
+    },
+    {
+      "Route": "admin-assets/js/SignalR-Support.wq3juba6q6.js",
+      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/admin-assets/js/SignalR-Support.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3865"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 17:04:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -29363,7 +29500,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "66d0d7sqnc"
+          "Value": "wq3juba6q6"
         },
         {
           "Name": "label",
@@ -29371,13 +29508,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA="
+          "Value": "sha256-uKOR7SG149N5GSiJywdEfPQ6TLAxr5WRTSHUvx4cg3s="
         }
       ]
     },
     {
-      "Route": "admin-assets/js/SignalR-Support.66d0d7sqnc.js.gz",
-      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-66d0d7sqnc.gz",
+      "Route": "admin-assets/js/SignalR-Support.wq3juba6q6.js.gz",
+      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-wq3juba6q6.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -29386,7 +29523,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1015"
+          "Value": "1370"
         },
         {
           "Name": "Content-Type",
@@ -29394,11 +29531,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2hvCtNhi9HDZtyvhrAoV3e66hi912MXeE0LFQyOCPEQ=\""
+          "Value": "\"bt4TCpSpX0UX4Qm62rqrvDIlXphDOllMXoaMPPiylkE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:26:31 GMT"
+          "Value": "Mon, 21 Apr 2025 17:04:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -29416,7 +29553,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "66d0d7sqnc"
+          "Value": "wq3juba6q6"
         },
         {
           "Name": "label",
@@ -29424,144 +29561,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-2hvCtNhi9HDZtyvhrAoV3e66hi912MXeE0LFQyOCPEQ="
-        }
-      ]
-    },
-    {
-      "Route": "admin-assets/js/SignalR-Support.js",
-      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-66d0d7sqnc.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000984251969"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1015"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"2hvCtNhi9HDZtyvhrAoV3e66hi912MXeE0LFQyOCPEQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:26:31 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA="
-        }
-      ]
-    },
-    {
-      "Route": "admin-assets/js/SignalR-Support.js",
-      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/admin-assets/js/SignalR-Support.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3058"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:26:31 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-riuHhEVWjxdfw6Dzzf3Eer9XvJlLnaUQrrbLx5ynakA="
-        }
-      ]
-    },
-    {
-      "Route": "admin-assets/js/SignalR-Support.js.gz",
-      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/wr6o68djps-66d0d7sqnc.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1015"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"2hvCtNhi9HDZtyvhrAoV3e66hi912MXeE0LFQyOCPEQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:26:31 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-2hvCtNhi9HDZtyvhrAoV3e66hi912MXeE0LFQyOCPEQ="
+          "Value": "sha256-bt4TCpSpX0UX4Qm62rqrvDIlXphDOllMXoaMPPiylkE="
         }
       ]
     },
@@ -48334,13 +48334,13 @@
       ]
     },
     {
-      "Route": "client-assets/js/SignalR-Client.cibj9duulq.js",
-      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-cibj9duulq.gz",
+      "Route": "client-assets/js/SignalR-Client.i9ife83on7.js",
+      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-i9ife83on7.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001633986928"
+          "Quality": "0.001536098310"
         }
       ],
       "ResponseHeaders": [
@@ -48350,15 +48350,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "611"
+          "Value": "650"
         },
         {
           "Name": "ETag",
-          "Value": "\"d1mm1vxfMJOAGDsownRHH60ERhiQrsa19OUjdC9q3Dc=\""
+          "Value": "\"gHHzGoEZVs8/Almn9KzE9cBgqtiCUk6AHJ6zNbu8Hyo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:31:55 GMT"
+          "Value": "Mon, 21 Apr 2025 17:11:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -48378,13 +48378,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68=\""
+          "Value": "W/\"Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "cibj9duulq"
+          "Value": "i9ife83on7"
         },
         {
           "Name": "label",
@@ -48392,12 +48392,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68="
+          "Value": "sha256-Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o="
         }
       ]
     },
     {
-      "Route": "client-assets/js/SignalR-Client.cibj9duulq.js",
+      "Route": "client-assets/js/SignalR-Client.i9ife83on7.js",
       "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/wwwroot/client-assets/js/SignalR-Client.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -48407,7 +48407,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1494"
+          "Value": "1579"
         },
         {
           "Name": "Content-Type",
@@ -48415,11 +48415,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68=\""
+          "Value": "\"Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:31:55 GMT"
+          "Value": "Mon, 21 Apr 2025 17:11:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -48429,7 +48429,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "cibj9duulq"
+          "Value": "i9ife83on7"
         },
         {
           "Name": "label",
@@ -48437,13 +48437,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68="
+          "Value": "sha256-Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o="
         }
       ]
     },
     {
-      "Route": "client-assets/js/SignalR-Client.cibj9duulq.js.gz",
-      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-cibj9duulq.gz",
+      "Route": "client-assets/js/SignalR-Client.i9ife83on7.js.gz",
+      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-i9ife83on7.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -48452,7 +48452,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "611"
+          "Value": "650"
         },
         {
           "Name": "Content-Type",
@@ -48460,11 +48460,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"d1mm1vxfMJOAGDsownRHH60ERhiQrsa19OUjdC9q3Dc=\""
+          "Value": "\"gHHzGoEZVs8/Almn9KzE9cBgqtiCUk6AHJ6zNbu8Hyo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:31:55 GMT"
+          "Value": "Mon, 21 Apr 2025 17:11:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -48482,7 +48482,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "cibj9duulq"
+          "Value": "i9ife83on7"
         },
         {
           "Name": "label",
@@ -48490,18 +48490,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-d1mm1vxfMJOAGDsownRHH60ERhiQrsa19OUjdC9q3Dc="
+          "Value": "sha256-gHHzGoEZVs8/Almn9KzE9cBgqtiCUk6AHJ6zNbu8Hyo="
         }
       ]
     },
     {
       "Route": "client-assets/js/SignalR-Client.js",
-      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-cibj9duulq.gz",
+      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-i9ife83on7.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001633986928"
+          "Quality": "0.001536098310"
         }
       ],
       "ResponseHeaders": [
@@ -48511,15 +48511,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "611"
+          "Value": "650"
         },
         {
           "Name": "ETag",
-          "Value": "\"d1mm1vxfMJOAGDsownRHH60ERhiQrsa19OUjdC9q3Dc=\""
+          "Value": "\"gHHzGoEZVs8/Almn9KzE9cBgqtiCUk6AHJ6zNbu8Hyo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:31:55 GMT"
+          "Value": "Mon, 21 Apr 2025 17:11:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -48539,13 +48539,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68=\""
+          "Value": "W/\"Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68="
+          "Value": "sha256-Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o="
         }
       ]
     },
@@ -48560,7 +48560,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1494"
+          "Value": "1579"
         },
         {
           "Name": "Content-Type",
@@ -48568,11 +48568,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68=\""
+          "Value": "\"Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:31:55 GMT"
+          "Value": "Mon, 21 Apr 2025 17:11:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -48582,13 +48582,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-BB6LwVLr3GoRhAMLdn1nVA2itRCqz9LDtLXgXD15v68="
+          "Value": "sha256-Nii9C5JDlClmeQXFG5XbJKybbyU7oHh+aoKvgxC7D+o="
         }
       ]
     },
     {
       "Route": "client-assets/js/SignalR-Client.js.gz",
-      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-cibj9duulq.gz",
+      "AssetFile": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Web/obj/Debug/net9.0/compressed/dt545rw4tv-i9ife83on7.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -48597,7 +48597,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "611"
+          "Value": "650"
         },
         {
           "Name": "Content-Type",
@@ -48605,11 +48605,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"d1mm1vxfMJOAGDsownRHH60ERhiQrsa19OUjdC9q3Dc=\""
+          "Value": "\"gHHzGoEZVs8/Almn9KzE9cBgqtiCUk6AHJ6zNbu8Hyo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 21:31:55 GMT"
+          "Value": "Mon, 21 Apr 2025 17:11:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -48627,7 +48627,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-d1mm1vxfMJOAGDsownRHH60ERhiQrsa19OUjdC9q3Dc="
+          "Value": "sha256-gHHzGoEZVs8/Almn9KzE9cBgqtiCUk6AHJ6zNbu8Hyo="
         }
       ]
     },
