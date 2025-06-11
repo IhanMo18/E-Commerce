@@ -685,25 +685,6 @@
           }
         }
       },
-      "Ecommerce.Data/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "dependencies": {
-          "Ecommerce.Domain": "1.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.2",
-          "Microsoft.EntityFrameworkCore": "9.0.2",
-          "Microsoft.Extensions.Identity.Core": "9.0.2",
-          "Microsoft.Extensions.Identity.Stores": "9.0.2",
-          "Npgsql": "9.0.2",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.3"
-        },
-        "compile": {
-          "bin/placeholder/Ecommerce.Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Ecommerce.Data.dll": {}
-        }
-      },
       "Ecommerce.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -717,6 +698,25 @@
         },
         "runtime": {
           "bin/placeholder/Ecommerce.Domain.dll": {}
+        }
+      },
+      "Ecommerce.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Ecommerce.Domain": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.2",
+          "Microsoft.EntityFrameworkCore": "9.0.2",
+          "Microsoft.Extensions.Identity.Core": "9.0.2",
+          "Microsoft.Extensions.Identity.Stores": "9.0.2",
+          "Npgsql": "9.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Ecommerce.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ecommerce.Infrastructure.dll": {}
         }
       }
     }
@@ -1926,21 +1926,21 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Ecommerce.Data/1.0.0": {
-      "type": "project",
-      "path": "../Ecommerce.Data/Ecommerce.Data.csproj",
-      "msbuildProject": "../Ecommerce.Data/Ecommerce.Data.csproj"
-    },
     "Ecommerce.Domain/1.0.0": {
       "type": "project",
       "path": "../Ecommerce.Domain/Ecommerce.Domain.csproj",
       "msbuildProject": "../Ecommerce.Domain/Ecommerce.Domain.csproj"
+    },
+    "Ecommerce.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Ecommerce.Infrastructure/Ecommerce.Infrastructure.csproj",
+      "msbuildProject": "../Ecommerce.Infrastructure/Ecommerce.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Ecommerce.Data >= 1.0.0",
       "Ecommerce.Domain >= 1.0.0",
+      "Ecommerce.Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.2"
     ]
   },
@@ -1969,11 +1969,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Data/Ecommerce.Data.csproj": {
-              "projectPath": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Data/Ecommerce.Data.csproj"
-            },
             "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Domain/Ecommerce.Domain.csproj": {
               "projectPath": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Domain/Ecommerce.Domain.csproj"
+            },
+            "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Infrastructure/Ecommerce.Infrastructure.csproj": {
+              "projectPath": "/Users/ihan/Desktop/C#Projects/E-Commerce/Ecommerce.Infrastructure/Ecommerce.Infrastructure.csproj"
             }
           }
         }
