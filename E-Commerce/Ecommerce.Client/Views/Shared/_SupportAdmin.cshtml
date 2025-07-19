@@ -17,6 +17,7 @@
     // Iniciar conexión de SignalR
     connection.start().then(() => {
       connection.invoke("Register", adminId, "Admin");
+      connection.invoke("SubscribeSupport", adminId);
       console.log("Admin registrado en el Hub");
     }).catch(err => console.error("Error al conectar con el Hub:", err.toString()));
   });

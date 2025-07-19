@@ -2,14 +2,17 @@
 using Ecommerce.Domain.Interface.Repository;
 using Ecommerce.Domain.Models;
 using Microsoft.AspNetCore.SignalR;
+using System.Linq;
 
 namespace Dashboard.Models.Hub;
 
 public class MessageHub(IMessageRepository _messageRepository) :Microsoft.AspNetCore.SignalR.Hub
 {
-    private static Dictionary<string, string> userConnections = new Dictionary<string, string>();
-    private static HashSet<string> connectedClients = new HashSet<string>();
-    private static HashSet<string> connectedAdmins = new HashSet<string>();
+    private static readonly Dictionary<string, string> userConnections = new();
+    private static readonly HashSet<string> connectedClients = new();
+    private static readonly HashSet<string> connectedAdmins = new();
+    private static readonly HashSet<string> subscribedAdmins = new();
+    private static readonly Dictionary<string, string> activeSessions = new();
     
     // Cuando el usuario se conecta, registra su ID
     public async Task Register(string userId, string rol)
@@ -29,6 +32,7 @@ public class MessageHub(IMessageRepository _messageRepository) :Microsoft.AspNet
             case RoleType.Admin:
                 await Groups.AddToGroupAsync(Context.ConnectionId, RoleType.Admin);
                 connectedAdmins.Add(userId);
+                subscribedAdmins.Add(userId);
                 await SendUsersOnline();
                 break;
             
@@ -43,33 +47,60 @@ public class MessageHub(IMessageRepository _messageRepository) :Microsoft.AspNet
     
     
     // Cliente envía mensaje al soporte
-    public async Task SendToSupport(string userSenderId,string userReceptorId, string messageText)
+    public async Task SendToSupport(string userId, string messageText)
     {
-        var message = new Message()
+        var message = new Message
         {
-            SenderId = userSenderId,
-            ReceptorId = userReceptorId,
+            SenderId = userId,
+            ReceptorId = activeSessions.ContainsKey(userId) ? activeSessions[userId] : null,
             MessageText = messageText,
             DateTime = DateTime.UtcNow
         };
         _messageRepository.Update(message);
-        await Clients.Group(RoleType.Admin).SendAsync("ReceiveMessageFromUser",userSenderId,userReceptorId,messageText);
+
+        if (activeSessions.TryGetValue(userId, out var adminId))
+        {
+            if (userConnections.TryGetValue(adminId, out var connId))
+            {
+                await Clients.Client(connId).SendAsync("ReceiveMessageFromUser", userId, messageText);
+            }
+        }
+        else
+        {
+            foreach (var admin in subscribedAdmins)
+            {
+                if (userConnections.TryGetValue(admin, out var connId))
+                {
+                    await Clients.Client(connId).SendAsync("ReceiveMessageFromUser", userId, messageText);
+                }
+            }
+        }
     }
 
     
     
     // Soporte responde a un cliente específico
-    public async Task SendToUser(string userSenderId,string userReceptorId, string messageText)
+    public async Task SendToUser(string adminId, string userId, string messageText)
     {
-        var message = new Message()
+        if (!activeSessions.ContainsKey(userId))
         {
-            SenderId = userSenderId,
-            ReceptorId = userReceptorId,
+            activeSessions[userId] = adminId;
+            await Clients.Group(RoleType.Admin).SendAsync("UserAssigned", userId, adminId);
+        }
+        else if (activeSessions[userId] != adminId)
+        {
+            return;
+        }
+
+        var message = new Message
+        {
+            SenderId = adminId,
+            ReceptorId = userId,
             MessageText = messageText,
             DateTime = DateTime.UtcNow
         };
         _messageRepository.Update(message);
-        await Clients.Group($"Client-{userReceptorId}").SendAsync("ReceiveSupportMessage",userReceptorId,messageText);
+        await Clients.Group($"Client-{userId}").SendAsync("ReceiveSupportMessage", userId, messageText);
     }
 
 
@@ -86,6 +117,21 @@ public class MessageHub(IMessageRepository _messageRepository) :Microsoft.AspNet
         var messages = await _messageRepository.GetConversationAsync(user1Id, user2Id);
         //Caller permite que solo el cliente que inooca el metoodo es el que lo recibe
         await Clients.Caller.SendAsync("ReceivedHistory", messages);
+    }
+
+    public Task SubscribeSupport(string adminId)
+    {
+        subscribedAdmins.Add(adminId);
+        return Task.CompletedTask;
+    }
+
+    public Task EndConversation(string adminId, string userId)
+    {
+        if (activeSessions.TryGetValue(userId, out var assigned) && assigned == adminId)
+        {
+            activeSessions.Remove(userId);
+        }
+        return Task.CompletedTask;
     }
     
    
@@ -116,6 +162,14 @@ public class MessageHub(IMessageRepository _messageRepository) :Microsoft.AspNet
             if (connectedAdmins.Contains(userId))
             {
                 connectedAdmins.Remove(userId);
+                subscribedAdmins.Remove(userId);
+
+                var toRemove = activeSessions.Where(kvp => kvp.Value == userId).Select(kvp => kvp.Key).ToList();
+                foreach (var key in toRemove)
+                {
+                    activeSessions.Remove(key);
+                }
+
                 await SendUsersOnline();
             }
         }

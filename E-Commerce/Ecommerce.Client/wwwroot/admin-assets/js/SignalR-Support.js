@@ -92,9 +92,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  connection.on("UserAssigned", (userId, assignedAdmin) => {
+    if (assignedAdmin !== adminId) {
+      if (currentClient === userId) currentClient = "";
+    }
+  });
+
   
   // Mensaje recibido desde usuario
-  connection.on("ReceiveMessageFromUser", async (senderId, _, messageText) => {
+  connection.on("ReceiveMessageFromUser", async (senderId, messageText) => {
     currentClient = senderId;
     const { img } = await fetchUserInfo(senderId);
     addMessageToChat({
@@ -125,6 +131,12 @@ sendButton.addEventListener("click", async () => {
     messageInput.value = ""; // Limpiar campo
   } catch (err) {
     console.error("Error al enviar mensaje:", err.toString());
+  }
+});
+
+window.addEventListener("beforeunload", () => {
+  if (currentClient) {
+    connection.invoke("EndConversation", adminId, currentClient);
   }
 });
 
