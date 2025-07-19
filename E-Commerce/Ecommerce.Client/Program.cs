@@ -13,6 +13,8 @@ using Ecommerce.Services.CategoryService;
 using Ecommerce.Services.MessageService;
 using Ecommerce.Services.ProductService;
 using Ecommerce.Services.ReviewService;
+using Ecommerce.Application.CQRS.Mediator;
+using Ecommerce.Application.CQRS.Queries;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -53,6 +55,12 @@ builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<IReviewService,ReviewService>();
 builder.Services.AddSignalR();
+
+// CQRS mediator registration
+builder.Services.AddSingleton<IMediator, SimpleMediator>();
+builder.Services.AddTransient<IRequestHandler<GetAllProductsQuery, IEnumerable<Product>>, GetAllProductsHandler>();
+builder.Services.AddTransient<IRequestHandler<GetProductWithCategoryQuery, Product?>, GetProductWithCategoryHandler>();
+builder.Services.AddTransient<IRequestHandler<GetProductWithAllReviewsQuery, Product?>, GetProductWithAllReviewsHandler>();
 
 builder.Services.AddRazorPages();
 var app = builder.Build();
