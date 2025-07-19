@@ -89,15 +89,13 @@ document.addEventListener("DOMContentLoaded", function () {
               const messageText = messageInput.value.trim();
               if (messageText === "") return;
 
-              if (typeof adminList === "undefined" || typeof userId === "undefined" || typeof connection === "undefined") {
 
-                console.log(`El adminList ${adminList}`)
-                console.log(`El userId ${userId}`)
-                console.error("Variables necesarias no están definidas (adminList, userId o connection).");
+              if (typeof userId === "undefined" || typeof connection === "undefined") {
+                console.error("Variables necesarias no están definidas (userId o connection).");
                 return;
               }
 
-              connection.invoke("SendToSupport",userId, adminList[0], messageText)
+              connection.invoke("SendToSupport", userId, messageText)
                 .catch(err => console.error(err.toString()));
                 
               const response = await fetch(`/users/img/${userId}`);
