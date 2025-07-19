@@ -13,6 +13,8 @@ using Ecommerce.Services.CategoryService;
 using Ecommerce.Services.MessageService;
 using Ecommerce.Services.ProductService;
 using Ecommerce.Services.ReviewService;
+using Ecommerce.CQRS.Common;
+using Ecommerce.Application.CQRS.Products;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -52,6 +54,9 @@ builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<IReviewService,ReviewService>();
+builder.Services.AddSingleton<IMediator, SimpleMediator>();
+builder.Services.AddScoped<IHandler<GetProductByIdQuery, Product?>, GetProductByIdHandler>();
+builder.Services.AddScoped<IHandler<CreateProductCommand, Product>, CreateProductHandler>();
 builder.Services.AddSignalR();
 
 builder.Services.AddRazorPages();

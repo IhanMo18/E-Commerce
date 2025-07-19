@@ -5,6 +5,8 @@ using Ecommerce.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Ecommerce.CQRS.Common;
+using Ecommerce.Application.CQRS.Products;
 
 namespace Dashboard.Areas.Admin.Controllers;
 
@@ -69,8 +71,8 @@ public class HomeController(IProductService productService,ICategoryService cate
         return View(productVm);
     }
     
-   [HttpPost]
-public async Task<IActionResult> CreateOrUpdate(ProductVm productsVm, IFormFile? file)
+[HttpPost]
+public async Task<IActionResult> CreateOrUpdate(ProductVm productsVm, IFormFile? file, [FromServices] IMediator mediator)
 {
     if (!ModelState.IsValid)
     {
@@ -124,13 +126,11 @@ public async Task<IActionResult> CreateOrUpdate(ProductVm productsVm, IFormFile?
 
     if (productsVm.Product.Id == 0)
     {
-        // Crear nuevo producto
-        productService.Update(productsVm.Product);
+        await mediator.SendAsync(new CreateProductCommand(productsVm.Product.Name!, productsVm.Product.Details!, productsVm.Product.Price));
         TempData["ProductAddSucces"] = true;
     }
     else
     {
-        // Actualizar producto existente
         productService.Update(productsVm.Product);
         TempData["ProductUpdateSucces"] = true;
     }
@@ -140,9 +140,9 @@ public async Task<IActionResult> CreateOrUpdate(ProductVm productsVm, IFormFile?
 
 
 
-    public async Task<IActionResult> ShowProduct(int id)
+    public async Task<IActionResult> ShowProduct(int id, [FromServices] IMediator mediator)
     {
-        var product = await productService.GetByIdAsync(id);
+        var product = await mediator.SendAsync(new GetProductByIdQuery(id));
         if (product != null)
         {
             product.ShowProduct = !product.ShowProduct;
