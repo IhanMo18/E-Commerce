@@ -4,16 +4,20 @@ using Ecommerce.Domain.Models;
 
 namespace Ecommerce.Services.ProductService;
 
+/// <summary>
+/// Service implementation for product operations.
+/// </summary>
 public class ProductService(IProductRepository repository) : Service<Product>(repository), IProductService
 {
-
-    public Product? GetProductsWithCategory(int productId)
+    /// <inheritdoc />
+    public async Task<Product?> GetProductsWithCategoryAsync(int productId)
     {
-        return repository.GetProductsWithCategory(productId);
+        return await repository.GetProductsWithCategoryAsync(productId);
     }
 
-    public Product? GetProductsWithAllReviews(int productId)
+    /// <inheritdoc />
+    public async Task<Product?> GetProductsWithAllReviewsAsync(int productId)
     {
-        return repository.GetProductsWithAllReviews(productId);
+        return await repository.GetProductsWithAllReviewsAsync(productId);
     }
 }

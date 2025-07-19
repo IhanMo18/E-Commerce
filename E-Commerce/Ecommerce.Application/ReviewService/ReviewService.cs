@@ -4,11 +4,17 @@ using Ecommerce.Domain.Models;
 
 namespace Ecommerce.Services.ReviewService;
 
+/// <summary>
+/// Service for handling reviews.
+/// </summary>
 public class ReviewService(IReviewsRepository repository,
     IProductService productService) :Service<Reviews>(repository),IReviewService
 {
-    public Product? SearchReviewByProducts(int productId)
+    /// <summary>
+    /// Obtain a product with its reviews.
+    /// </summary>
+    public async Task<Product?> SearchReviewByProducts(int productId)
     {
-      return productService.GetProductsWithAllReviews(productId);
+      return await productService.GetProductsWithAllReviewsAsync(productId);
     }
 }

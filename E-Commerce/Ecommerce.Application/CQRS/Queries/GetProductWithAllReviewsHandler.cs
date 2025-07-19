@@ -4,12 +4,16 @@ using Ecommerce.Domain.Models;
 
 namespace Ecommerce.Application.CQRS.Queries;
 
+/// <summary>
+/// Handles requests for product with all reviews information.
+/// </summary>
 public class GetProductWithAllReviewsHandler(IProductRepository repository) : IRequestHandler<GetProductWithAllReviewsQuery, Product?>
 {
     private readonly IProductRepository _repository = repository;
 
-    public Task<Product?> Handle(GetProductWithAllReviewsQuery request, CancellationToken cancellationToken)
+    /// <inheritdoc />
+    public async Task<Product?> Handle(GetProductWithAllReviewsQuery request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(_repository.GetProductsWithAllReviews(request.Id));
+        return await _repository.GetProductsWithAllReviewsAsync(request.Id);
     }
 }

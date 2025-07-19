@@ -31,8 +31,8 @@ public class HomeController(IProductService productService,ICategoryService cate
         List<ProductVm?> productVms = [];
         foreach (var product in products)
         {
-           var productWithCategory = productService.GetProductsWithCategory(product.Id);
-           var productWhitReviews = productService.GetProductsWithAllReviews(product.Id);
+           var productWithCategory = await productService.GetProductsWithCategoryAsync(product.Id);
+           var productWhitReviews = await productService.GetProductsWithAllReviewsAsync(product.Id);
             ProductVm productVm = new ProductVm()
             {
                 Product = productWithCategory,
@@ -157,8 +157,12 @@ public async Task<IActionResult> CreateOrUpdate(ProductVm productsVm, IFormFile?
     public async Task<IActionResult> Edit(int id)
     {
         var listCategories = await categoryService.GetAllAsync();
-        var product = productService.GetProductsWithCategory(id);
-        product.reviews = productService.GetProductsWithAllReviews(id).reviews;
+        var product = await productService.GetProductsWithCategoryAsync(id);
+        var reviewsHolder = await productService.GetProductsWithAllReviewsAsync(id);
+        if (product != null && reviewsHolder != null)
+        {
+            product.reviews = reviewsHolder.reviews;
+        }
         var productVm = new ProductVm()
         {
             Categories = listCategories.Select(category => new SelectListItem()

@@ -5,24 +5,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Data.Repositories;
 
+/// <summary>
+/// Repository implementation for <see cref="Product"/>.
+/// </summary>
 public class ProductRepository(ApplicationDbContext dbContext) : Repository<Product>(dbContext), IProductRepository
 {
-    public Product? GetProductsWithCategory(int productId)
+    /// <inheritdoc />
+    public async Task<Product?> GetProductsWithCategoryAsync(int productId)
     {
-        var productWithCategory = _dbContext.Products
+        var productWithCategory = await _dbContext.Products
             .Include(obj => obj.Category)
-            .SingleOrDefault(product => product.Id == productId); 
-        Console.WriteLine($"Producto con ID {productId} no encontrado.");
+            .SingleOrDefaultAsync(product => product.Id == productId);
+
+        if (productWithCategory == null)
+        {
+            Console.WriteLine($"Producto con ID {productId} no encontrado.");
+        }
+
         return productWithCategory;
     }
-    
-    public Product? GetProductsWithAllReviews(int productId)
+
+    /// <inheritdoc />
+    public async Task<Product?> GetProductsWithAllReviewsAsync(int productId)
     {
-        var productWithCategory = _dbContext.Products
+        return await _dbContext.Products
             .Include(obj => obj.Category)
-            .Include(obj=>obj.reviews)
-            .SingleOrDefault(product => product.Id == productId);
-        return productWithCategory;
+            .Include(obj => obj.reviews)
+            .SingleOrDefaultAsync(product => product.Id == productId);
     }
-    
 }

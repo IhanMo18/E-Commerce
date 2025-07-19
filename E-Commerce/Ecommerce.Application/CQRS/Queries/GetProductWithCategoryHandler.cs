@@ -4,12 +4,16 @@ using Ecommerce.Domain.Models;
 
 namespace Ecommerce.Application.CQRS.Queries;
 
+/// <summary>
+/// Handles requests for product with category information.
+/// </summary>
 public class GetProductWithCategoryHandler(IProductRepository repository) : IRequestHandler<GetProductWithCategoryQuery, Product?>
 {
     private readonly IProductRepository _repository = repository;
 
-    public Task<Product?> Handle(GetProductWithCategoryQuery request, CancellationToken cancellationToken)
+    /// <inheritdoc />
+    public async Task<Product?> Handle(GetProductWithCategoryQuery request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(_repository.GetProductsWithCategory(request.Id));
+        return await _repository.GetProductsWithCategoryAsync(request.Id);
     }
 }
