@@ -25,6 +25,12 @@ public class Repository<T> : IRepository<T> where T : class
         return await _dbSet.FindAsync(id);
     }
 
+    public void Add(T obj)
+    {
+        _dbSet.Add(obj);
+        _dbContext.SaveChanges();
+    }
+
     public void Update(T obj)
     {
         _dbSet.Update(obj);

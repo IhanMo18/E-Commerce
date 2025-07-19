@@ -17,6 +17,11 @@ public class Service<T>(IRepository<T> repository) : IService<T>
         return await repository.GetAsync(id);
     }
 
+    public void Add(T obj)
+    {
+        repository.Add(obj);
+    }
+
     public void Save()
     {
         repository.Save();
