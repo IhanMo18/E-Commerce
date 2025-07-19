@@ -12,7 +12,7 @@ namespace Dashboard.Areas.Admin.Controllers;
 public class HomeController(IProductService productService,ICategoryService categoryService,UserManager<User> userManager,
     IWebHostEnvironment webHostEnvironment,IReviewService reviewService,IMessageService messageService):Controller
 {
-    public async Task<IActionResult> Index()
+    public  async  Task<IActionResult> Index()
     {
         // var productVm = await productService.GetAllAsync();
         var userVm = new UsersVm()
